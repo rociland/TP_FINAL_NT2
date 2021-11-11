@@ -8,6 +8,10 @@ import 'bootstrap'
 
 Vue.config.productionTip = false
 
+// import { router } from './router'
+import './form'
+import './axios'
+
 new Vue({
   render: h => h(App),
 }).$mount('#app')
