@@ -1,6 +1,6 @@
 
 export default {
-  name: 'src-components-menu',
+  name: 'src-components-home',
   components: {},
   props: [],
   data () {

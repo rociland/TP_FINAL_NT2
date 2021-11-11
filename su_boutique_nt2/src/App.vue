@@ -1,24 +1,22 @@
 <template>
-  
-  <Navbar />
-  <!-- <router-view></router-view> -->
+  <Router />
 </template>
 
 <script>
 
-import Navbar from './components/Navbar.vue'
+import Router from './components/Router.vue'
 
 export default {
     name: 'App',
     components: {
-      Navbar
+      Router
     }
   } 
 
 </script>
 
 <style>
-    #app {
+    #login {
       text-align: center;
       background-color: #F1E4F0 ;
       min-height: 100vh; /* Para que el background abarque toda la pantalla */ 
