@@ -1,0 +1,75 @@
+
+<section class="src-components-login">
+    <div id="app">
+      <br>
+      <!-- <img alt="Vue logo" src=".../assets/logo.png"> -->
+      <br>
+      <br>
+      <div class="mx-auto" style="width: 300px;">
+        <div class="col-30">
+
+          <form>
+            
+            <div class="form-group">
+
+                <input type="text"
+                      class="form-control"
+                      id="usuario" 
+                      placeholder="USUARIO">
+
+                    <!-- <validate tag="div">
+                      <label for="nombre">Nombre</label>
+                      <input type="text"
+                            id="nombre" 
+                            v-model="formData.nombre" 
+                            required 
+                            name="nombre" 
+                            autocomplete="off" 
+                            :minlength="nombreMinLength"
+                            :maxlength="nombreMaxLength"
+                            class="form-control" />
+                
+                      <field-messages name="nombre" show="$dirty">
+                        <div slot="required" class="alert alert-danger mt-1">
+                          Campo requerido.
+                        </div>
+                        <div slot="minlength" class="alert alert-danger mt-1">
+                          Este campo requiere como mínimo {{nombreMinLength}} caracteres.
+                        </div>
+                        <div v-if="formData.nombre.length == nombreMaxLength" class="alert alert-danger mt-1">
+                          Este campo debe poseer como máximo {{nombreMaxLength}} caracteres.
+                        </div>
+                      </field-messages>
+          
+                    </validate> -->
+            </div>
+
+            
+            
+            <div class="form-group">
+              <input type="password" 
+                    class="form-control"
+                    id="contrasenia"
+                    placeholder="CONTRASEÑA">
+            </div>
+            
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Recordar Usuario</label>
+            </div>
+                          
+            <button type="submit" 
+                    class="btn btn-primary mt-3" 
+                    id="boton">
+                    INGRESAR
+            </button>
+
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+</section>
+

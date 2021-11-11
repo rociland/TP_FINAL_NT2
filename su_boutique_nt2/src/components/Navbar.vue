@@ -1,16 +1,24 @@
 <template>
 
   <section class="scr-componentes-navbar">
-    <h1>scr-componentes-navbar Component</h1>
+    <Login></Login>
+
   </section>
 
 </template>
 
 <script>
+    
+    // import Login from './Login/index.vue'
+    import Login from './pruebas.vue'
 
-  export default  {
+
+    export default  {
     name: 'scr-componentes-navbar',
     props: [],
+    components: {
+        Login
+    },
     mounted () {
 
     },
