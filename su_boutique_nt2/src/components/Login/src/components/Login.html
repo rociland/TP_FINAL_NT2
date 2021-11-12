@@ -7,65 +7,76 @@
       <br>
       <div class="mx-auto" style="width: 300px;">
         <div class="col-30">
-
-          <form>
-            
-            <div class="form-group">
-
-                <input type="text"
-                      class="form-control"
-                      id="usuario" 
-                      placeholder="USUARIO">
-
-                    <!-- <validate tag="div">
-                      <label for="nombre">Nombre</label>
-                      <input type="text"
-                            id="nombre" 
-                            v-model="formData.nombre" 
-                            required 
-                            name="nombre" 
-                            autocomplete="off" 
-                            :minlength="nombreMinLength"
-                            :maxlength="nombreMaxLength"
-                            class="form-control" />
-                
-                      <field-messages name="nombre" show="$dirty">
-                        <div slot="required" class="alert alert-danger mt-1">
-                          Campo requerido.
-                        </div>
-                        <div slot="minlength" class="alert alert-danger mt-1">
-                          Este campo requiere como mínimo {{nombreMinLength}} caracteres.
-                        </div>
-                        <div v-if="formData.nombre.length == nombreMaxLength" class="alert alert-danger mt-1">
-                          Este campo debe poseer como máximo {{nombreMaxLength}} caracteres.
-                        </div>
-                      </field-messages>
           
-                    </validate> -->
-            </div>
+          <div v-if="msj != 'OK'"
+               class="alert alert-dark" 
+               role="alert">
+               {{ msj }}
+          </div>
 
-            
-            
-            <div class="form-group">
-              <input type="password" 
-                    class="form-control"
-                    id="contrasenia"
-                    placeholder="CONTRASEÑA">
-            </div>
-            
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Recordar Usuario</label>
-            </div>
-                          
-            <button type="submit" 
-                    class="btn btn-primary mt-3" 
-                    id="boton">
-                    INGRESAR
-            </button>
+            <vue-form :state="formstate" @submit.prevent="ingresar()">
+                      
+                <!-- ---------------------------------- Campo Usuario ---------------------------------- -->
+                  <validate tag="div">
 
+                    <input  type="text"
+                            id="usuario" 
+                            placeholder="USUARIO"
+                            v-model="formData.usuario" 
+                            name="usuario"
+                            class="form-control"
+                            required 
+                            autocomplete="off"
+                            no-espacios
+                     >
+              
+                    <field-messages name="usuario" show="$dirty">
+                      <div slot="required" class="alert alert-danger mt-1">
+                        Campo requerido.
+                      </div>
+                      <div slot="no-espacios" class="alert alert-danger mt-1">
+                        No esta permitido el ingreso de espacios entremedio del texto
+                      </div>
+                    </field-messages>
 
-          </form>
+                  </validate>
+
+                  <br>
+                   <!-- ---------------------------------- Campo Pass ---------------------------------- -->
+                   <validate tag="div">
+
+                    <input  type="password"
+                            id="contrasenia" 
+                            placeholder="CONTRASEÑA"
+                            v-model="formData.contrasenia" 
+                            name="contrasenia"
+                            class="form-control"
+                            required 
+                            autocomplete="off"
+                            no-espacios
+                     >
+              
+                    <field-messages name="contrasenia" show="$dirty">
+                      <div slot="required" class="alert alert-danger mt-1">
+                        Campo requerido.
+                      </div>
+                      <div slot="no-espacios" class="alert alert-danger mt-1">
+                        No esta permitido el ingreso de espacios entremedio del texto
+                      </div>
+                    </field-messages>
+
+                  </validate>
+
+                  <br>
+
+                  <button class="btn btn-primary my-3" 
+                          :disabled="formstate.$invalid"
+                          type="submit"
+                          id="boton">
+                          INGRESAR
+                  </button>
+            </vue-form>
+
 
         </div>
       </div>
