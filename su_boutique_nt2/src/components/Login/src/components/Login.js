@@ -1,5 +1,6 @@
 
 import image from "../../../../assets/logo.png"
+import { URL_LOGIN } from "../../../../constants/constants"
 export default {
   name: 'src-components-login',
   components: {},
@@ -10,7 +11,6 @@ export default {
       formstate  : {},
       formData   : this.getInicio(),
       peticion   : false,
-      url        : "https://61848a0dac0b850017489eb1.mockapi.io/suboutiquee/usuarios",
       msj        : "OK"
     }
   },
@@ -35,19 +35,14 @@ export default {
     async verificarIngreso( dataIngresada ) {
         this.peticion = true;
         try {
-                let respuesta = await this.axios( this.url )
+              console.log("verificarIngreso", dataIngresada)
+                let body  = { usuario : dataIngresada.usuario, password: dataIngresada.contrasenia }
+                let respuesta = await this.axios.post( URL_LOGIN, body )
                 let data = respuesta.data
-                let encontrado = false;
-                let index = 0;
-
-                while( index < data.length && !encontrado) {
-                  encontrado = ( data[index].name === dataIngresada.usuario 
-                        && data[index].pass === dataIngresada.contrasenia)
-                  index ++;
-                }
+                console.log(data)
                 this.peticion = false
-                this.msj = (!encontrado ? "Los datos ingresados no son correctos, verificar usuario y contraseña" : "OK")
-                if(encontrado) {this.$router.push('registro')}
+                this.msj = (data && data.msg ? "Los datos ingresados no son correctos, verificar usuario y contraseña" : "OK")
+                if(data && data.usuario) {this.$router.push('home')}
           } catch ( err ) {
               console.error('Error en recepcion de datos del servidor, ', err )
               this.msj = "Ocurrio un error en la recepcion del servicio"
