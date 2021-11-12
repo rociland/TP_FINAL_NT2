@@ -26,4 +26,5 @@ export default {
       border-color:rgb(116, 90, 114);
       width: 75%;
     }
+   
 </style>

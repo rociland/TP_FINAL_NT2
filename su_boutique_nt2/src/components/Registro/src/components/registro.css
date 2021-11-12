@@ -1,0 +1,23 @@
+#body{
+    background-color: #F1E4F0 ;
+    min-height: 100vh; /* Para que el background abarque toda la pantalla */ 
+}
+#boton1{
+   background:#978095;
+   width: 87%;
+  
+}
+#boton2{
+    width: 85%;
+    background:#5f5d5f;
+    
+ }
+ .card{
+     padding: 20px;
+     top: 100px;
+     left: 160px;
+ }
+ h1{
+     text-align: center;
+     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+ }

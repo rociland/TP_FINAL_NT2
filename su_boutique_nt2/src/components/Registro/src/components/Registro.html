@@ -1,5 +1,74 @@
 
-<section class="src-components-registro">
-  <h1>src-components-registro Component</h1>
+<body id="body">
+
+
+<section class="container">
+  
+  <div class="card" style="width: 50rem;">
+    <h1>Registrar Paciente</h1>
+    <div class="card-body">
+      <form >
+        <div class="form-row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Nombre">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Apellido">
+          </div>
+          <div class="col">
+            <input type="date" class="form-control">
+          </div>
+        </div>
+
+        <br>
+        <div class="form-row">
+          <div class="col">
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+              <option selected>Tipo Documento...</option>
+              <option value="1">DNI</option>
+              <option value="2">DNI EXTRANJERO</option>
+              <option value="3">PASAPORTE</option>
+            </select>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control" placeholder="Nro Documento">
+          </div>
+          <div class="col">
+            <input type="number" class="form-control" placeholder="Telefono">
+          </div>
+        </div>
+
+        <br>
+        <div class="form-row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Domicilio">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Piso">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Dpto">
+          </div>
+        </div>
+
+        <br>
+        <div  >
+          <div class="form-row col-md-13" >
+          <div class="col">
+            <button type="submit" class="btn btn-primary" id="boton1">Crear Paciente</button>
+          </div>
+          <div class="col">
+            <button type="submit" class="btn btn-secondary" id="boton2">Cancelar</button>
+          </div>
+             
+          </div>
+        </div>
+        
+
+      </form>
+    </div>
+  </div>
 </section>
 
+
+</body>
