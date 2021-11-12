@@ -4,20 +4,24 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import Login from './componentes/Login/index.vue'
-import Registro from './componentes/Registro/index.vue'
+import Login from './components/Login/index.vue'
+import Home from './components/Home/index.vue'
+import Registro from './components/Registro/index.vue'
 
 
 //el use para poner en marcha un plagin
 Vue.use(VueRouter)
 
-export const router = new VueRouter({
+const router = new VueRouter({
 
     mode: 'history',
     routes: [
-        { path: '/', redirect: '/Login'},
-        { path: '/Login', component: Login },
-        { path: '/Registro', component: Registro }
+        { path: '/', redirect: '/login' },
+        { path: '/login', component: Login },
+        { path: '/home', component: Home },
+        { path: '/registro', component: Registro }
     ]
 
 })
+
+export default router

@@ -1,23 +1,17 @@
 <template>
 
-  <section class="scr-componentes-navbar">
-    <Login></Login>
-
+  <section class="scr-componentes-router">
+    <router-view></router-view>
   </section>
 
 </template>
 
 <script>
     
-    // import Login from './Login/index.vue'
-    import Login from './pruebas.vue'
-
-
     export default  {
-    name: 'scr-componentes-navbar',
+    name: 'scr-componentes-router',
     props: [],
     components: {
-        Login
     },
     mounted () {
 
@@ -39,7 +33,7 @@
 </script>
 
 <style scoped lang="css">
-  .scr-componentes-navbar {
+  .scr-componentes-router {
 
   }
 </style>
