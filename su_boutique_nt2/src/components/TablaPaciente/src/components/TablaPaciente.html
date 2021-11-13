@@ -1,0 +1,47 @@
+
+<section class="src-components-tabla-paciente container">
+
+  <div id="header">
+    <HeaderTitle :titulo="titulo"></HeaderTitle>
+  </div>
+
+  <div id="navigator">
+
+    <div id="filtro">
+        
+    </div>
+
+    <div v-if="pacientes.length" class="table-responsive"> 
+          <table class="table">
+            <thead>
+              <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha</th>
+                <th>Telefono</th>
+                <th>Domicilio</th>
+                <th>Historial</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(paciente, index) in pacientes" :key="index">
+                <td>{{ paciente.dni }}</td>
+                <td>{{ paciente.nombre }}</td>
+                <td>{{ paciente.apellido }}</td>
+                <td>{{ paciente.fecha }}</td>
+                <td>{{ paciente.telefono }}</td>
+                <td>{{ paciente.domicilio }}</td>
+                <td>{{ paciente.icono }}</td>
+                <td> <font-awesome-icon icon="calendar-alt" /> </td>
+              </tr>
+            </tbody>
+          </table>
+
+      </div>
+      <h4 v-if="peticion" class="alert alert-info">Cargando datos...</h4> 
+      <h4 v-if="!peticion && pacientes.length === 0"  class="alert alert-secondary">No se encontraron registrados de pacientes</h4>
+  </div>
+
+</section>
+

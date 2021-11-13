@@ -9,8 +9,8 @@ import Consulta from './components/Consulta/index.vue'
 import Historial from './components/Historial/index.vue'
 import Login from './components/Login/index.vue'
 import Home from './components/Home/index.vue'
-import Pacientes from './components/Pacientes/index.vue'
 import Registro from './components/Registro/index.vue'
+import TablaPaciente from './components/TablaPaciente/index.vue'
 
 
 //el use para poner en marcha un plagin
@@ -26,8 +26,8 @@ const router = new VueRouter({
         { path: '/historial', component: Historial },
         { path: '/login', component: Login },
         { path: '/home', component: Home },
-        { path: '/pacientes', component: Pacientes },
-        { path: '/registro', component: Registro }
+        { path: '/registro', component: Registro },
+        { path: '/pacientes', component: TablaPaciente }
     ]
 
 })
