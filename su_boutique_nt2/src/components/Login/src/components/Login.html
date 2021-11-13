@@ -8,10 +8,10 @@
       <div class="mx-auto" style="width: 300px;">
         <div class="col-30">
           
-          <div v-if="msj != 'OK'"
+          <div v-if="msg != 'OK'"
                class="alert alert-dark" 
                role="alert">
-               {{ msj }}
+               {{ msg }}
           </div>
 
             <vue-form :state="formstate" @submit.prevent="ingresar()">

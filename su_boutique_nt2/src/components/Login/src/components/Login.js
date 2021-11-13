@@ -11,7 +11,7 @@ export default {
       formstate  : {},
       formData   : this.getInicio(),
       peticion   : false,
-      msj        : "OK"
+      msg        : "OK"
     }
   },
   computed: {
@@ -35,17 +35,18 @@ export default {
     async verificarIngreso( dataIngresada ) {
         this.peticion = true;
         try {
-              console.log("verificarIngreso", dataIngresada)
                 let body  = { usuario : dataIngresada.usuario, password: dataIngresada.contrasenia }
                 let respuesta = await this.axios.post( URL_LOGIN, body )
                 let data = respuesta.data
-                console.log(data)
                 this.peticion = false
-                this.msj = (data && data.msg ? "Los datos ingresados no son correctos, verificar usuario y contraseña" : "OK")
-                if(data && data.usuario) {this.$router.push('home')}
+                this.msg = data.msg
+                // "Los datos ingresados no son correctos, verificar usuario y contraseña"
+                if(data && data.status) {
+                  this.$router.push('home')
+                }
           } catch ( err ) {
               console.error('Error en recepcion de datos del servidor, ', err )
-              this.msj = "Ocurrio un error en la recepcion del servicio"
+              this.msg = "Ocurrio un error en la recepcion del servicio"
         }
     }
   }
