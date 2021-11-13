@@ -11,7 +11,7 @@ export default {
   mixins: [PacienteServer],
   data () {
     return {
-      titulo    : 'Lista de pacientes',
+      titulo    : 'Gestion de paciente / Lista de Pacientes',
       peticion : false,
       pacientes : []
     }

@@ -1,11 +1,20 @@
+import HeaderTitle from '../../../comunes/HeaderTitulo.vue'
 
 export default {
   name: 'src-components-registro',
-  components: {},
+  components: {
+    HeaderTitle
+  },
   props: [],
   data () {
     return {
-        hola: 'dasd'
+      titulo    : 'Gestion de paciente / Alta de pacientes',
+      formstate : {},
+      formData  : this.getInitialData(),
+      nombreMinLength : 5,
+      nombreMaxLength : 15,
+      minEdad : 18,
+      maxEdad : 120
     }
   },
   computed: {
@@ -15,6 +24,13 @@ export default {
 
   },
   methods: {
+    getInitialData() {
+      return {
+        nombre : '',
+        edad: null,
+        email: null
+      }
+    }
 
   }
 }

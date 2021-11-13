@@ -1,3 +1,11 @@
 .src-components-tabla-paciente {
 
 }
+
+
+thead {
+    background-color: #f0e2ef8a;
+    color: #856d84;
+    font-family: arial, helvetica, roboto, "new times roman", lato;
+}
+
