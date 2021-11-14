@@ -32,7 +32,7 @@ export default {
           this.pacientes = respuesta.data
           this.peticion = false
         } catch( err ){
-          console.err("Ocurrio un error a consultar los pacientes")
+          console.error("Ocurrio un error a consultar los pacientes")
         }
     }
 

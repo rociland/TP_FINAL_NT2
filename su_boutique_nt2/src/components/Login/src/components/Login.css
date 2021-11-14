@@ -57,3 +57,14 @@ h1 {
     background-color: #f1e4f0;
     border-bottom: 2px solid #826a80;
   }
+
+  #login {
+    text-align: center;
+    background-color: #F1E4F0 ;
+    min-height: 100vh; /* Para que el background abarque toda la pantalla */ 
+  }
+  #boton {
+    background: rgb(116, 90, 114);
+    border-color:rgb(116, 90, 114);
+    width: 75%;
+  }
