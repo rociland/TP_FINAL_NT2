@@ -25,7 +25,6 @@ export default {
 
   },
   mounted () {
-
   },
   methods: {
     getInitialData() {
@@ -41,16 +40,32 @@ export default {
         departamento    : ''
       }
     },
+    
     guardar() {
       let body = { ...this.formData }
       console.log(`Datos ingresados... ${body}`)
       this.crearNuevoPaciente( body )
     }, 
+    
+    openError(){
+      this.$notify({
+        group: 'error',
+        title: 'Error',
+        type: 'error',
+        text: 'No se pudo creacion del paciente'
+      });
+    },
+    
+    cancelar() {
+      this.formData = this.getInitialData()
+      this.$router.push('home')
+    },
 
     async crearNuevoPaciente( body ) {
         try{
           let respuesta =  await this.crearPaciente( body )
           console.log(respuesta)
+          this.formData = this.getInitialData()
         } catch( err ){
           console.error("Ocurrio un error a consultar los pacientes")
         }

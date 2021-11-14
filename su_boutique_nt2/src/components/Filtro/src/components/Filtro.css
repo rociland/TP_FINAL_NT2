@@ -1,0 +1,18 @@
+.input-login {
+    border: 0;
+    border-bottom: 2px solid #d8cadb;
+  }
+
+.btn-aceptar {
+  background: rgb(116, 90, 114);
+  border-color:rgb(116, 90, 114);
+  width: 100%;
+  color: #d9cdd8;
+}
+
+.btn-cancelar {
+  background: rgb(238, 220, 237);
+  border-color: rgb(116, 90, 114);
+  width:100%;
+  color: rgb(116, 90, 114);
+}

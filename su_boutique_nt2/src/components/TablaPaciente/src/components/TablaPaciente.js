@@ -1,26 +1,33 @@
 import { PacienteServer } from '../../../../funciones/paciente'
 
 import HeaderTitle from '../../../comunes/HeaderTitulo.vue'
+import FiltroPaciente from '../../../Filtro/index.vue'
+
 
 export default {
   name: 'src-components-tabla-paciente',
   components: {
-    HeaderTitle
+    HeaderTitle,
+    FiltroPaciente
   },
-  props: [],
+  props: ['aplicoFiltro'],
   mixins: [PacienteServer],
   data () {
     return {
-      titulo    : 'Gestion de paciente / Lista de Pacientes',
-      peticion : false,
-      pacientes : []
+      titulo          : 'Gestion de paciente / Lista de Pacientes',
+      peticion        : false,
+      pacientes       : [],
+      model           : false,
+      modelCancelar   : 'VOLVER',
     }
   },
   computed: {
 
   },
   mounted () {
-    this.obtenerPacientes()
+    console.log(this.aplicoFiltro)
+    if(this.aplicoFiltro === undefined)
+        this.obtenerPacientes()
     
   },
   methods: {

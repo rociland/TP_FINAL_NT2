@@ -22,9 +22,9 @@
           <router-link to="/pacientes">
             <p>Lista de pacientes</p>
           </router-link>
-          <router-link to="">
-            <p>Historial de pacientes</p>
-          </router-link>
+          <div >
+            <p v-b-modal.modal-filtro >Buscar paciente</p>
+           </div> 
   
         </div>
       
@@ -57,9 +57,28 @@
         </div>
     
       </div>
+      <!-- -->
+      <div>
+        <b-modal id="modal-filtro" 
+                title="Buscar Paciente"
+                class="model-filtro " 
+                hide-footer
+                size="lg"
+                centered 
+                hide-backdrop 
+                no-close-on-backdrop
+                >
+          <p class="info-filtro">Filtro de paciente</p>
+          <FiltroPaciente :model="model" :nombreCancelar="modelCancelar"></FiltroPaciente>
+        </b-modal>
+      </div>
+
     </div>
+
+
+
+
     
-
-
+ 
 </section>
 

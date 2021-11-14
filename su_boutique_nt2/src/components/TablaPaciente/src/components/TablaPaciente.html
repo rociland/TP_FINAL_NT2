@@ -6,11 +6,11 @@
   </div>
 
   <div id="navigator">
-
-    <div id="filtro">
-        
-    </div>
+    
     <br>
+    <div id="filtro">
+      <FiltroPaciente :model="model" :nombreCancelar="modelCancelar"></FiltroPaciente>
+    </div>
     <br>
         <div v-if="pacientes.length" class="table-responsive"> 
             <table class="table">

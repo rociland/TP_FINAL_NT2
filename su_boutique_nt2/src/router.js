@@ -6,6 +6,7 @@ import VueRouter from "vue-router";
 
 import Agendar from './components/Agendar/index.vue'
 import Consulta from './components/Consulta/index.vue'
+import Filtro from './components/Filtro/index.vue'
 import Historial from './components/Historial/index.vue'
 import Login from './components/Login/index.vue'
 import Home from './components/Home/index.vue'
@@ -23,6 +24,7 @@ const router = new VueRouter({
         { path: '/', redirect: '/login' },
         { path: '/agendar', component: Agendar },
         { path: '/consulta', component: Consulta },
+        { path: '/filtro', component: Filtro },
         { path: '/historial', component: Historial },
         { path: '/login', component: Login },
         { path: '/home', component: Home },
