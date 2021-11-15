@@ -31,7 +31,7 @@
                   <td>{{ paciente.fecha }}</td>
                   <td>{{ paciente.telefono }}</td>
                   <td>{{ paciente.domicilio }}</td>
-                  <td> cambiar icono <font-awesome-icon icon="calendar-alt" /> </td>
+                  <td><font-awesome-icon icon="clipboard" class="icono-historial"/> </td>
                 </tr>
               </tbody>
             </table>
@@ -40,7 +40,6 @@
        <h4 v-if="peticion" class="alert alert-info">Cargando datos...</h4> 
        <h4 v-if="!peticion && pacientes.length === 0"  class="alert alert-secondary">No se encontraron registrados de pacientes</h4>
    
-       <div class="botones-tabla-paciente"></div>
     </div>
 
 </section>

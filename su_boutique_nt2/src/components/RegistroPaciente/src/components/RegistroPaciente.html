@@ -7,54 +7,56 @@
   <br>
 
   <div id="navigator">
-      
+
     <vue-form :state="formstate" @submit.prevent="guardar()" @reset="cancelar()" class="form-registro">
 
       <div class="form-row">
 
         <div class="form-group col-md-4">
-          <!-- <validate tag="div"> -->
-          <input type="text" id="nombre" placeholder="Nombre" v-model="formData.nombre" name="nombre"
-            class="form-control input-login" required autocomplete="off" no-espacios>
-          <!-- <field-messages name="nombre" show="$dirty">
-                  <div slot="required" class="alert alert-danger mt-1">
-                    Campo requerido.
-                  </div>
-                  <div slot="no-espacios" class="alert alert-danger mt-1">
+          <validate tag="div">
+            <input type="text" id="nombre" placeholder="*Nombre" v-model="formData.nombre" name="nombre"
+              class="form-control input-login" required autocomplete="off">
+
+            <field-messages name="nombre" show="$dirty">
+              <div slot="required" class="alert alert-danger mt-1">
+                Campo requerido.
+              </div>
+              <!-- <div slot="no-espacios" class="alert alert-danger mt-1">
+                No esta permitido el ingreso de espacios entremedio del texto
+              </div> -->
+            </field-messages>
+          </validate>
+
+        </div>
+
+        <div class="form-group col-md-4">
+          <validate tag="div">
+            <input type="text" id="apellido" placeholder="*Apellido" v-model="formData.apellido" name="apellido"
+              class="form-control input-login" required autocomplete="off">
+            <field-messages name="apellido" show="$dirty">
+              <div slot="required" class="alert alert-danger mt-1">
+                Campo requerido.
+              </div>
+              <!-- <div slot="no-espacios" class="alert alert-danger mt-1">
                     No esta permitido el ingreso de espacios entremedio del texto
-                  </div>
-                </field-messages> -->
-          <!-- </validate>   -->
+                  </div> -->
+            </field-messages>
+          </validate>
         </div>
 
         <div class="form-group col-md-4">
-          <!-- <validate tag="div"> -->
-          <input type="text" id="apellido" placeholder="Apellido" v-model="formData.apellido" name="apellido"
-            class="form-control input-login" required autocomplete="off" no-espacios>
-          <!-- <field-messages name="apellido" show="$dirty">
-                <div slot="required" class="alert alert-danger mt-1">
-                  Campo requerido.
-                </div>
-                <div slot="no-espacios" class="alert alert-danger mt-1">
-                  No esta permitido el ingreso de espacios entremedio del texto
-                </div>
-              </field-messages> -->
-          <!-- </validate>   -->
-        </div>
-
-        <div class="form-group col-md-4">
-          <!-- <validate tag="div"> -->
-          <input type="text" id="fecha" placeholder="Fecha de Nacimiento" v-model="formData.fecha" name="fecha"
-            class="form-control input-login" required autocomplete="off" no-espacios>
-          <!-- <field-messages name="fecha" show="$dirty">
-                <div slot="required" class="alert alert-danger mt-1">
-                  Campo requerido.
-                </div>
-                <div slot="no-espacios" class="alert alert-danger mt-1">
-                  No esta permitido el ingreso de espacios entremedio del texto
-                </div>
-              </field-messages> -->
-          <!-- </validate>   -->
+          <validate tag="div">
+            <input type="text" id="fecha" placeholder="Fecha de Nacimiento" v-model="formData.fecha" name="fecha"
+              class="form-control input-login" required autocomplete="off">
+            <field-messages name="fecha" show="$dirty">
+              <div slot="required" class="alert alert-danger mt-1">
+                Campo requerido.
+              </div>
+              <!-- <div slot="no-espacios" class="alert alert-danger mt-1">
+                    No esta permitido el ingreso de espacios entremedio del texto
+                  </div> -->
+            </field-messages>
+          </validate>
         </div>
 
       </div>
@@ -62,33 +64,33 @@
       <div class="form-row">
 
         <div class="form-group col-md-4">
-          <!-- <validate tag="div"> -->
-          <input type="text" id="tipo_documento" placeholder="Tipo de Documento" v-model="formData.tipo_documento"
-            name="tipo_documento" class="form-control input-login" required autocomplete="off" no-espacios>
-          <!-- <field-messages name="tipo_documento" show="$dirty">
-                  <div slot="required" class="alert alert-danger mt-1">
-                    Campo requerido.
-                  </div>
-                  <div slot="no-espacios" class="alert alert-danger mt-1">
-                    No esta permitido el ingreso de espacios entremedio del texto
-                  </div>
-                </field-messages> -->
-          <!-- </validate>   -->
+          <validate tag="div">
+            <input type="text" id="tipo_documento" placeholder="*Tipo de Documento" v-model="formData.tipo_documento"
+              name="tipo_documento" class="form-control input-login" required autocomplete="off">
+            <field-messages name="tipo_documento" show="$dirty">
+              <div slot="required" class="alert alert-danger mt-1">
+                Campo requerido.
+              </div>
+              <!-- <div slot="no-espacios" class="alert alert-danger mt-1">
+                      No esta permitido el ingreso de espacios entremedio del texto
+                    </div> -->
+            </field-messages>
+          </validate>
         </div>
 
         <div class="form-group col-md-4">
-          <!-- <validate tag="div"> -->
-          <input type="text" id="nro_documento" placeholder="Número de Documento" v-model="formData.nro_documento"
-            name="nro_documento" class="form-control input-login" required autocomplete="off" no-espacios>
-          <!-- <field-messages name="nro_documento" show="$dirty">
-                <div slot="required" class="alert alert-danger mt-1">
-                  Campo requerido.
-                </div>
-                <div slot="no-espacios" class="alert alert-danger mt-1">
-                  No esta permitido el ingreso de espacios entremedio del texto
-                </div>
-              </field-messages> -->
-          <!-- </validate>   -->
+          <validate tag="div">
+            <input type="text" id="nro_documento" placeholder="*Número de Documento" v-model="formData.nro_documento"
+              name="nro_documento" class="form-control input-login" required autocomplete="off">
+            <field-messages name="nro_documento" show="$dirty">
+              <div slot="required" class="alert alert-danger mt-1">
+                Campo requerido.
+              </div>
+              <!-- <div slot="no-espacios" class="alert alert-danger mt-1">
+                No esta permitido el ingreso de espacios entremedio del texto
+              </div> -->
+            </field-messages>
+          </validate>
         </div>
 
         <div class="form-group col-md-4">
@@ -178,7 +180,7 @@
     </vue-form>
 
 
-    <notifications group="error" />
+    <notifications group="foo" />
 
 
 

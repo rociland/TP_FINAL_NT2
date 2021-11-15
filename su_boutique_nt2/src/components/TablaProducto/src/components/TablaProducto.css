@@ -1,0 +1,34 @@
+.src-components-tabla-producto {
+
+}
+
+thead {
+    background-color: #f0e2ef8a;
+    color: #856d84;
+    font-family: arial, helvetica, roboto, "new times roman", lato;
+}
+
+
+.input-login {
+    border: 0;
+    border-bottom: 2px solid #d8cadb;
+  }
+
+.btn-aceptar {
+  background: rgb(116, 90, 114);
+  border-color:rgb(116, 90, 114);
+  width: 100%;
+  color: #d9cdd8;
+}
+
+.btn-cancelar {
+  background: rgb(238, 220, 237);
+  border-color: rgb(116, 90, 114);
+  width:100%;
+  color: rgb(116, 90, 114);
+}
+
+.icono-edit {
+  font-size: 28px;
+  color: #745a72;
+}

@@ -1,0 +1,103 @@
+<section class="src-components-tabla-producto container">
+  <div id="header">
+    <HeaderTitle :titulo="titulo"></HeaderTitle>
+  </div>
+
+  <div id="navigator">
+
+    <br>
+  
+    <!-- filtro -->
+    <vue-form :state="formstate" @submit="filtrar()" @reset="cancelar()" class="form-registro">
+
+      <div class="form-row">
+
+        <div class="form-group col-md-4">
+          <input type="text" id="codigo" placeholder="Codigo" v-model="formData.codigo" name="codigo"
+            class="form-control input-login" autocomplete="off">
+        </div>
+
+        <div class="form-group col-md-4">
+          <input type="text" id="nombre" placeholder="Nombre" v-model="formData.nombre" name="nombre"
+            class="form-control input-login" autocomplete="off">
+        </div>
+
+        <div class="form-group col-md-4">
+          <input type="text" id="marca" placeholder="Marca" v-model="formData.marca"
+            name="marca" class="form-control input-login" autocomplete="off">
+        </div>
+
+      </div>
+
+
+      <div class="form-row">
+
+        <div class="form-group col-md-4"></div>
+
+        <div class="form-group col-md-4">
+          <button class="btn btn-cancelar my-3" type="reset" id="cancelar">
+            VOLVER
+          </button>
+        </div>
+
+        <div class="form-group col-md-4">
+          <button class="btn btn-aceptar my-3" type="submit" id="boton">
+            BUSCAR
+          </button>
+        </div>
+      </div>
+
+    </vue-form>
+
+
+    <br>
+    <div v-if="productos.length" class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Codigo</th>
+            <th>Nombre del Producto</th>
+            <th>Tipo</th>
+            <th>Marca</th>
+            <th>Precio</th>
+            <th>Modificar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(producto, index) in productos" :key="index">
+            <td>{{ producto.codigo }}</td>
+            <td>{{ producto.producto }}</td>
+            <td>{{ producto.tipo }}</td>
+            <td>{{ producto.marca }}</td>
+            <td>$ {{ producto.precio }}</td>
+            <td>
+              <font-awesome-icon v-b-modal.modal-producto icon="edit" class="icono-edit"/>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <h4 v-if="peticion" class="alert alert-info">Cargando datos...</h4>
+    <h4 v-if="!peticion && productos.length === 0" class="alert alert-secondary">No se encontraron registrados de
+      productos</h4>
+
+
+      <div>
+        <b-modal id="modal-producto" 
+                title="Modificar Producto"
+                class="model-producto " 
+                hide-footer
+                size="lg"
+                centered 
+                hide-backdrop 
+                no-close-on-backdrop
+                >
+          <!-- <ModificarProducto></ModificarProducto> -->
+        </b-modal>
+      </div>
+
+  </div>
+
+
+</section>

@@ -7,11 +7,14 @@ import VueRouter from "vue-router";
 import Agendar from './components/Agendar/index.vue'
 import Consulta from './components/Consulta/index.vue'
 import Filtro from './components/Filtro/index.vue'
-import Historial from './components/Historial/index.vue'
+import HistorialDelPaciente from './components/HistorialDelPaciente/index.vue'
 import Login from './components/Login/index.vue'
 import Home from './components/Home/index.vue'
-import Registro from './components/Registro/index.vue'
+import RegistroPaciente from './components/RegistroPaciente/index.vue'
+import RegistroProducto from './components/RegistroProducto/index.vue'
 import TablaPaciente from './components/TablaPaciente/index.vue'
+import TablaProducto from './components/TablaProducto/index.vue'
+
 
 
 //el use para poner en marcha un plagin
@@ -25,11 +28,14 @@ const router = new VueRouter({
         { path: '/agendar', component: Agendar },
         { path: '/consulta', component: Consulta },
         { path: '/filtro', component: Filtro },
-        { path: '/historial', component: Historial },
+        { path: '/historial', component: HistorialDelPaciente },
         { path: '/login', component: Login },
         { path: '/home', component: Home },
-        { path: '/registro', component: Registro },
-        { path: '/pacientes', component: TablaPaciente }
+        { path: '/registro', component: RegistroPaciente },
+        { path: '/registroproducto', component: RegistroProducto },
+        { path: '/pacientes', component: TablaPaciente },
+        { path: '/productos', component: TablaProducto }
+
     ]
 
 })

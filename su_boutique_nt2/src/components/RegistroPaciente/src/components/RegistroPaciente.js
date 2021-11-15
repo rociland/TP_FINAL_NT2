@@ -49,10 +49,10 @@ export default {
     
     openError(){
       this.$notify({
-        group: 'error',
-        title: 'Error',
-        type: 'error',
-        text: 'No se pudo creacion del paciente'
+        group: 'foo',
+        title: 'Alta Paciente',
+        type: 'foo',
+        text: 'Se creo correctamente el paciente.'
       });
     },
     
