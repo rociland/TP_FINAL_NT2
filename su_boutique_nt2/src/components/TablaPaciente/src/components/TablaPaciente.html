@@ -1,11 +1,11 @@
 
-<section class="src-components-tabla-paciente container">
+<section class="src-components-tabla-paciente ">
 
   <div id="header">
     <HeaderTitle :titulo="titulo"></HeaderTitle>
   </div>
 
-  <div id="navigator">
+  <div id="navigator" class="container">
     
     <br>
     <div id="filtro">
@@ -22,6 +22,7 @@
                   <th>Telefono</th>
                   <th>Domicilio</th>
                   <th>Historial</th>
+                  <th>Modificar</th>
                 </tr>
               </thead>
               <tbody>
@@ -31,7 +32,10 @@
                   <td>{{ paciente.fecha }}</td>
                   <td>{{ paciente.telefono }}</td>
                   <td>{{ paciente.domicilio }}</td>
-                  <td><font-awesome-icon icon="clipboard" class="icono-historial"/> </td>
+                  <td><font-awesome-icon icon="clipboard" class="icono"/> </td>
+                  <td>
+                    <font-awesome-icon v-b-modal.modal-producto icon="edit" class="icono"/>
+                  </td>
                 </tr>
               </tbody>
             </table>

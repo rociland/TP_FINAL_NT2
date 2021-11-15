@@ -1,10 +1,15 @@
+import HeaderTitle from '../../../comunes/HeaderTitulo.vue'
+
 
 export default {
   name: 'src-components-historial',
-  components: {},
+  components: {
+    HeaderTitle
+  },
   props: [],
   data () {
     return {
+      titulo    : 'Historial de Paciente',
     }
   },
   computed: {

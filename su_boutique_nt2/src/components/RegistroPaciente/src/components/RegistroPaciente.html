@@ -1,4 +1,4 @@
-<section class="src-components-registro container">
+<section class="src-components-registro">
 
   <div id="header">
     <HeaderTitle :titulo="titulo"></HeaderTitle>
@@ -6,7 +6,7 @@
 
   <br>
 
-  <div id="navigator">
+  <div id="navigator" class="container">
 
     <vue-form :state="formstate" @submit.prevent="guardar()" @reset="cancelar()" class="form-registro">
 

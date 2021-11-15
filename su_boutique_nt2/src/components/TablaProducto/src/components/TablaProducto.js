@@ -3,13 +3,16 @@ import { ProductoServer } from '../../../../funciones/producto'
 
 import HeaderTitle from '../../../comunes/HeaderTitulo.vue'
 import ModificarProducto from '../../../RegistroProducto/index.vue'
+import RegistroPaciente from '../../../RegistroPaciente/index.vue'
+
 
 
 export default {
   name: 'src-components-tabla-producto',
   components: {
     HeaderTitle,
-    ModificarProducto
+    ModificarProducto,
+    RegistroPaciente
   },
   props: [],
   mixins: [ProductoServer],
