@@ -32,19 +32,31 @@
                   <td>{{ paciente.fecha }}</td>
                   <td>{{ paciente.telefono }}</td>
                   <td>{{ paciente.domicilio }}</td>
-                  <td><font-awesome-icon icon="clipboard" class="icono"/> </td>
                   <td>
-                    <font-awesome-icon v-b-modal.modal-producto icon="edit" class="icono"/>
+                    <font-awesome-icon v-on:click="prueba(index)" 
+                                           v-b-modal.modal-producto 
+                                           icon="clipboard"
+                                           class="icono"/>
+                  </td>
+                  <td>
+                      <font-awesome-icon v-on:click="prueba(index)" 
+                                          v-b-modal.modal-producto 
+                                          icon="edit"
+                                          class="icono"/>
                   </td>
                 </tr>
               </tbody>
             </table>
 
         </div>
+        
        <h4 v-if="peticion" class="alert alert-info">Cargando datos...</h4> 
        <h4 v-if="!peticion && pacientes.length === 0"  class="alert alert-secondary">No se encontraron registrados de pacientes</h4>
    
-    </div>
+ 
+ 
+ 
+  </div> <!-- navigator -->
 
 </section>
 

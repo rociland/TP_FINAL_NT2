@@ -33,7 +33,7 @@ export default {
         apellido        : '',
         fecha           : null,
         tipo_documento  : '',
-        nro_documento   : null,
+        dni             : null,
         telefono        : '',
         domicilio       : '',
         piso            : '',
@@ -45,8 +45,19 @@ export default {
       let body = { ...this.formData }
       console.log(`Datos ingresados... ${body}`)
       this.crearNuevoPaciente( body )
+      this.openInfo(body);
+      this.$router.push('home')
     }, 
     
+    openInfo(body){
+      this.$notify({
+        group: 'foo',
+        title: 'Alta de paciente',
+        type: 'foo',
+        text: `Se creo correctamente el paciente ${body.nombre} ${body.apellido}`
+      });
+    },
+
     openError(){
       this.$notify({
         group: 'foo',

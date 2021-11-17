@@ -1,4 +1,4 @@
-<section class="src-components-tabla-producto ">
+<section class="src-components-productos-registrados ">
   <div id="header">
     <HeaderTitle :titulo="titulo"></HeaderTitle>
   </div>
@@ -8,7 +8,7 @@
     <br>
   
     <!-- filtro -->
-    <vue-form :state="formstate" @submit="filtrar()" @reset="cancelar()" class="form-registro">
+    <vue-form :state="formstate" @submit="filtrar()" @reset="cancelarFiltro()" class="form-registro">
 
       <div class="form-row">
 
@@ -71,7 +71,10 @@
             <td>{{ producto.marca }}</td>
             <td>$ {{ producto.precio }}</td>
             <td>
-              <font-awesome-icon v-b-modal.modal-producto icon="edit" class="icono-edit"/>
+              <font-awesome-icon v-on:click="modificar(index)" 
+                                  v-b-modal.modal-producto 
+                                  icon="edit"
+                                  class="icono-edit"/>
             </td>
           </tr>
         </tbody>
@@ -93,7 +96,7 @@
                 hide-backdrop 
                 no-close-on-backdrop
                 >
-          <!-- <ModificarProducto></ModificarProducto> -->
+          <ProductoModificar :formData='formData'></ProductoModificar>
         </b-modal>
       </div>
 

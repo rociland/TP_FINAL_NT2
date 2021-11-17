@@ -10,6 +10,8 @@ export const URL_PACIENTES_CREAR = BASE_URL + "/pacientes/crear"
 
 // -------Productos
 export const URL_PRODUCTOS = BASE_URL + "/producto"
+export const URL_PRODUCTOS_CREAR = BASE_URL + "/producto/crear"
+
 
 
 

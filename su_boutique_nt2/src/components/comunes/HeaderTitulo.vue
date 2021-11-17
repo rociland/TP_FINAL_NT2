@@ -7,9 +7,10 @@
           <img class="icon-header" alt="Vue logo" :src="image">
       </div>
 
-      <div class="col-md-6">
-        <h2 class="text_home">{{ titulo }}</h2>
+      <div class="col-md-6 ">        
+          <h2 class="text_home">{{ titulo }}</h2>
       </div>
+
 
     </div>
 
@@ -48,9 +49,13 @@ import image from '../../assets/logo.png'
     border-bottom: 2px solid #826a80;
   }
   .text_home {
-        color: rgb(116, 90, 114);
+      color: rgb(90, 71, 88);
         font-style: italic;
     }
+    /* .text_sub {
+        color: rgb(90, 71, 88);
+        font-style: italic;
+    } */
 
     hr {
         color: rgb(107, 97, 106);

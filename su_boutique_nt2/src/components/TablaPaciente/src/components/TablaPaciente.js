@@ -32,6 +32,14 @@ export default {
   },
   methods: {
     
+    prueba(index){
+      console.log("asdad", index)
+    },
+
+    // modificar(index) {
+      
+    // },
+
     async obtenerPacientes() {
       this.peticion = true
         try{

@@ -1,18 +1,14 @@
 import { ProductoServer } from '../../../../funciones/producto'
 
-
 import HeaderTitle from '../../../comunes/HeaderTitulo.vue'
-import ModificarProducto from '../../../RegistroProducto/index.vue'
-import RegistroPaciente from '../../../RegistroPaciente/index.vue'
-
+import ProductoModificar from '../../../ProductoModificar/index.vue'
 
 
 export default {
-  name: 'src-components-tabla-producto',
+  name: 'src-components-productos-registrados',
   components: {
     HeaderTitle,
-    ModificarProducto,
-    RegistroPaciente
+    ProductoModificar
   },
   props: [],
   mixins: [ProductoServer],
@@ -41,12 +37,19 @@ export default {
         precio         : null
       }
     },
+    
     filtrar(){
 
     },
-    
-    cancelar() {
 
+    modificar(index){
+      console.log("asdad", index)
+      this.formData = this.productos[index]
+      console.log("this.formData = ", this.formData)
+    },
+
+    cancelarFiltro() {
+      this.$router.push('home')
     },
 
     async obtenerProductos() {

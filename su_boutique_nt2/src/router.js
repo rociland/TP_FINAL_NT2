@@ -11,10 +11,12 @@ import HistorialDelPaciente from './components/HistorialDelPaciente/index.vue'
 import Login from './components/Login/index.vue'
 import Home from './components/Home/index.vue'
 import RegistroPaciente from './components/RegistroPaciente/index.vue'
-import RegistroProducto from './components/RegistroProducto/index.vue'
-import TablaPaciente from './components/TablaPaciente/index.vue'
-import TablaProducto from './components/TablaProducto/index.vue'
 
+//PRODUCTO
+import ProductoRegistro from './components/ProductoRegistro/index.vue'
+import ProductoRegistrados from './components/ProductoRegistrados/index.vue'
+
+import TablaPaciente from './components/TablaPaciente/index.vue'
 
 
 //el use para poner en marcha un plagin
@@ -32,9 +34,9 @@ const router = new VueRouter({
         { path: '/login', component: Login },
         { path: '/home', component: Home },
         { path: '/registro', component: RegistroPaciente },
-        { path: '/registroproducto', component: RegistroProducto },
-        { path: '/pacientes', component: TablaPaciente },
-        { path: '/productos', component: TablaProducto }
+        { path: '/productoregistro', component: ProductoRegistro },
+        { path: '/productosregistrados', component: ProductoRegistrados },
+        { path: '/pacientes', component: TablaPaciente }
 
     ]
 
