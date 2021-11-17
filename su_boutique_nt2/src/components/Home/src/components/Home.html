@@ -16,10 +16,10 @@
         <div class="col-md-9 text-right pacientes-detail">
           <h2>GESTION DE PACIENTES</h2>
           
-          <router-link to="/registro">
+          <router-link to="/pacienteregistro">
             <p>Alta de pacientes</p>
           </router-link>
-          <router-link to="/pacientes">
+          <router-link to="/pacienteregistrados">
             <p>Lista de pacientes</p>
           </router-link>
           <div >
@@ -73,7 +73,7 @@
                 no-close-on-backdrop
                 >
           <p class="info-filtro">Filtro de paciente</p>
-          <FiltroPaciente :model="model" :nombreCancelar="modelCancelar"></FiltroPaciente>
+          <PacienteFiltro :model="model" :nombreCancelar="modelCancelar"></PacienteFiltro>
         </b-modal>
       </div>
 

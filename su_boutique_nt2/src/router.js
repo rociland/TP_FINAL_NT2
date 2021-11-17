@@ -6,17 +6,19 @@ import VueRouter from "vue-router";
 
 import Agendar from './components/Agendar/index.vue'
 import Consulta from './components/Consulta/index.vue'
-import Filtro from './components/Filtro/index.vue'
 import HistorialDelPaciente from './components/HistorialDelPaciente/index.vue'
 import Login from './components/Login/index.vue'
 import Home from './components/Home/index.vue'
-import RegistroPaciente from './components/RegistroPaciente/index.vue'
+
+//Paciente
+import PacienteFiltro from './components/PacienteFiltro/index.vue'
+import PacienteRegistro from './components/PacienteRegistro/index.vue'
+import PacienteRegistrados from './components/PacienteRegistrados/index.vue'
 
 //PRODUCTO
 import ProductoRegistro from './components/ProductoRegistro/index.vue'
 import ProductoRegistrados from './components/ProductoRegistrados/index.vue'
 
-import TablaPaciente from './components/TablaPaciente/index.vue'
 
 
 //el use para poner en marcha un plagin
@@ -29,14 +31,14 @@ const router = new VueRouter({
         { path: '/', redirect: '/login' },
         { path: '/agendar', component: Agendar },
         { path: '/consulta', component: Consulta },
-        { path: '/filtro', component: Filtro },
         { path: '/historial', component: HistorialDelPaciente },
         { path: '/login', component: Login },
         { path: '/home', component: Home },
-        { path: '/registro', component: RegistroPaciente },
+        { path: '/filtro', component: PacienteFiltro },
+        { path: '/pacienteregistro', component: PacienteRegistro },
+        { path: '/pacienteregistrados', component: PacienteRegistrados },
         { path: '/productoregistro', component: ProductoRegistro },
-        { path: '/productosregistrados', component: ProductoRegistrados },
-        { path: '/pacientes', component: TablaPaciente }
+        { path: '/productosregistrados', component: ProductoRegistrados }
 
     ]
 

@@ -1,14 +1,14 @@
 import { PacienteServer } from '../../../../funciones/paciente'
 
 import HeaderTitle from '../../../comunes/HeaderTitulo.vue'
-import FiltroPaciente from '../../../Filtro/index.vue'
+import PacienteFiltro from '../../../PacienteFiltro/index.vue'
 
 
 export default {
   name: 'src-components-tabla-paciente',
   components: {
     HeaderTitle,
-    FiltroPaciente
+    PacienteFiltro
   },
   props: ['aplicoFiltro'],
   mixins: [PacienteServer],

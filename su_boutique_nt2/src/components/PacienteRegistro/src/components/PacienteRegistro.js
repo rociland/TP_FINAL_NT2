@@ -3,7 +3,7 @@ import image from "../../../../assets/imag1.jpg"
 import { PacienteServer } from '../../../../funciones/paciente'
 
 export default {
-  name: 'src-components-registro',
+  name: 'src-components-paciente-registro',
   components: {
     HeaderTitle
   },
@@ -18,13 +18,21 @@ export default {
       nombreMinLength : 5,
       nombreMaxLength : 15,
       minEdad         : 18,
-      maxEdad         : 120
+      maxEdad         : 120,
+      fechaMax        : '',
+      fechaMin        : ''
     }
   },
   computed: {
 
   },
   mounted () {
+    const hoy = new Date()
+    const anioMin = hoy.getFullYear() - 99
+    console.log(anioMin)
+    this.fechaMax = `${hoy.getFullYear()}-${hoy.getMonth()+1}-${hoy.getDate()}`
+    this.fechaMin = `${anioMin}-${hoy.getMonth()+1}-${hoy.getDate()}`
+
   },
   methods: {
     getInitialData() {
@@ -32,7 +40,7 @@ export default {
         nombre          : '',
         apellido        : '',
         fecha           : null,
-        tipo_documento  : '',
+        tipoDocumento   : '',
         dni             : null,
         telefono        : '',
         domicilio       : '',
