@@ -13,8 +13,8 @@ export default {
   data () {
     return {
       titulo      : 'Catalogo de productos / Alta de producto',
-      imagen          : image,
-      formstate       : {},
+      imagen      : image,
+      formstate   : {},
     }
   },
   computed: {
@@ -26,11 +26,11 @@ export default {
   methods: {
     getInitialData() {
       return {
-        codigo         : '',
-        producto       : '',
-        tipo           : null,
-        marca          : '',
-        precio         : null
+        codigo    : '',
+        producto  : '',
+        tipo      : null,
+        marca     : '',
+        precio    : null
       }
     },
     

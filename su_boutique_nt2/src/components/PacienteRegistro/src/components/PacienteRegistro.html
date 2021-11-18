@@ -179,16 +179,16 @@
       <notifications group="error" />
 
       <div>
-        <b-modal id="modal-producto" 
-                title="Modificar Paciente"
-                class="model-producto " 
+        <b-modal id="modal-notificar" 
+                title="Crear Paciente"
+                class="model-notificar" 
                 hide-footer
                 size="lg"
                 centered 
                 hide-backdrop 
                 no-close-on-backdrop
                 >
-          <ProductoModificar :formData='formData'></ProductoModificar>
+          <NotificarOK :mensaje="mensaje"></NotificarOK>
         </b-modal>
       </div>
 

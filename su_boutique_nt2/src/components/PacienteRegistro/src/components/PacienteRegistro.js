@@ -22,7 +22,8 @@ export default {
       minEdad         : 18,
       maxEdad         : 120,
       fechaMax        : '',
-      fechaMin        : ''
+      fechaMin        : '',
+      mensaje         : ''
     }
   },
   computed: {
@@ -65,12 +66,12 @@ export default {
       });
     },
 
-    openError(mensaje){
+    openError(){
       this.$notify({
         group: 'error',
         title: 'Error!',
         type: 'error',
-        text: mensaje
+        text: this.mensaje
       });
     },
     
@@ -82,8 +83,11 @@ export default {
     async crearNuevoPaciente( body ) {
         try{
           let respuesta =  await this.crearPaciente( body )
-          if( !respuesta.status ) this.openError(respuesta.msg)
-          else this.openInfo(body)
+          this.mensaje = respuesta.msg
+          if( !respuesta.status ) 
+            this.openError()
+          else 
+            this.$bvModal.show('modal-notificar') // this.openInfo(body)
         } catch( err ){
           this.openError("Ocurrio un error a consultar los pacientes")
         }
