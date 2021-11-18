@@ -43,7 +43,6 @@ export default {
     },
 
     modificar(index){
-      console.log("asdad", index)
       this.formData = this.productos[index]
       console.log("this.formData = ", this.formData)
     },

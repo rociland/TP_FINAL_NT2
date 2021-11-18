@@ -34,13 +34,13 @@
                   <td>{{ paciente.domicilio }}</td>
                   <td>
                     <font-awesome-icon v-on:click="prueba(index)" 
-                                           v-b-modal.modal-producto 
+                                           v-b-modal.modal-paciente 
                                            icon="clipboard"
                                            class="icono"/>
                   </td>
                   <td>
-                      <font-awesome-icon v-on:click="prueba(index)" 
-                                          v-b-modal.modal-producto 
+                      <font-awesome-icon v-on:click="modificar(index)" 
+                                          v-b-modal.modal-paciente 
                                           icon="edit"
                                           class="icono"/>
                   </td>
@@ -55,7 +55,24 @@
    
  
  
- 
+       <notifications group="error" />
+
+
+        <!-- --------------------------- Modal Modificar Paciente --------------------------- -->
+       <div>
+        <b-modal id="modal-paciente" 
+                title="Modificar Paciente"
+                class="model-paciente " 
+                hide-footer
+                size="lg"
+                centered 
+                hide-backdrop 
+                no-close-on-backdrop
+                >
+          <PacienteModificar :formData='formData'></PacienteModificar>
+        </b-modal>
+      </div>
+
   </div> <!-- navigator -->
 
 </section>

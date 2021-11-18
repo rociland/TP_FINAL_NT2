@@ -1,14 +1,10 @@
-<section class="src-components-paciente-registro">
-
-  <div id="header">
-    <HeaderTitle :titulo="titulo" ></HeaderTitle>
-  </div>
+<section class="src-components-paciente-modificar">
 
   <br>
 
   <div id="navigator" class="container">
 
-    <vue-form :state="formstate" @submit.prevent="guardar()" @reset="cancelar()" class="form-registro">
+    <vue-form :state="formstate" @prevent="guardar()" @reset="cancelar()" class="form-registro">
             
       <div class="form-row">
         <!-- -------------------------- Nombre --------------------------  -->
@@ -158,7 +154,6 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-4">
-          <img alt="" :src="imagen" class="img-mujer">
         </div>
         <!-- -------------------------- Cancelar --------------------------  -->
         <div class="form-group col-md-4">
@@ -169,7 +164,7 @@
         <!-- -------------------------- Crear --------------------------  -->
         <div class="form-group col-md-4">
           <button class="btn btn-aceptar my-3" type="submit" :disabled="formstate.$invalid"  id="crear">
-            CREAR PACIENTE
+            GUARDAR
           </button>
         </div>
       </div>
@@ -177,19 +172,6 @@
 
       <notifications group="foo" />
       <notifications group="error" />
-
-      <div>
-        <b-modal id="modal-notificar" 
-                class="model-notificar" 
-                hide-footer
-                size="lg"
-                centered 
-                hide-backdrop 
-                no-close-on-backdrop
-                >
-          <NotificarOK :mensaje="mensaje" :icono="icononotificar"  :modal="nombreModal"></NotificarOK>
-        </b-modal>
-      </div>
 
     </div>
 

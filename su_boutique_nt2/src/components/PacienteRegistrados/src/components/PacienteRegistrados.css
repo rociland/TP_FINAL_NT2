@@ -9,4 +9,5 @@ thead {
 .icono {
     font-size: 28px;
     color: #745a72;
+    cursor: pointer;
 }

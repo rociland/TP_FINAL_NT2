@@ -23,7 +23,9 @@ export default {
       maxEdad         : 120,
       fechaMax        : '',
       fechaMin        : '',
-      mensaje         : ''
+      mensaje         : '',
+      icononotificar  : 'user-check',
+      nombreModal     : 'modal-notificar'
     }
   },
   computed: {
@@ -76,6 +78,7 @@ export default {
     },
     
     cancelar() {
+      //this.$bvModal.show('modal-notificar')
       this.formData = this.getInitialData()
       this.$router.push('home')
     },
@@ -86,8 +89,10 @@ export default {
           this.mensaje = respuesta.msg
           if( !respuesta.status ) 
             this.openError()
-          else 
+          else {
+            this.formData = this.getInitialData()
             this.$bvModal.show('modal-notificar') // this.openInfo(body)
+          }
         } catch( err ){
           this.openError("Ocurrio un error a consultar los pacientes")
         }
