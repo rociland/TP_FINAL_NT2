@@ -18,7 +18,6 @@ export const PacienteServer = {
         async pedirPacientesAlServidor() {
             try {
               let respuesta = await this.axios( URL_PACIENTES )
-              console.log("respuesta en el servicio de pacientes", respuesta)
               return respuesta.data
             }
             catch( err ) {
@@ -28,11 +27,12 @@ export const PacienteServer = {
         async crearPaciente(body) {
             try {
               let respuesta = await this.axios.post( URL_PACIENTES_CREAR , body )
-              console.log("respuesta al crear: ", respuesta)
               return respuesta.data
             }
             catch( err ) {
-                  console.error('Error en recepcion de datos del servidor ', err)
+              console.error('Error en recepcion de datos del servidor ', err)
+              return { status: false, msg: `Error, ${err}`}
+
              }
         },
     }

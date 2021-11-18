@@ -1,11 +1,13 @@
 import HeaderTitle from '../../../comunes/HeaderTitulo.vue'
+import NotificarOK from '../../../comunes/NotificarOK.vue'
 import image from "../../../../assets/imag1.jpg"
 import { PacienteServer } from '../../../../funciones/paciente'
 
 export default {
   name: 'src-components-paciente-registro',
   components: {
-    HeaderTitle
+    HeaderTitle,
+    NotificarOK
   },
   props: [],
   mixins: [PacienteServer],
@@ -29,7 +31,6 @@ export default {
   mounted () {
     const hoy = new Date()
     const anioMin = hoy.getFullYear() - 99
-    console.log(anioMin)
     this.fechaMax = `${hoy.getFullYear()}-${hoy.getMonth()+1}-${hoy.getDate()}`
     this.fechaMin = `${anioMin}-${hoy.getMonth()+1}-${hoy.getDate()}`
 
@@ -50,13 +51,11 @@ export default {
     },
     
     guardar() {
-      let body = { ...this.formData }
-      console.log(`Datos ingresados... ${body}`)
-      this.crearNuevoPaciente( body )
-      this.openInfo(body);
-      this.$router.push('home')
+        this.error = false
+        let body = { ...this.formData }
+        this.crearNuevoPaciente( body )
     }, 
-    
+  
     openInfo(body){
       this.$notify({
         group: 'foo',
@@ -66,12 +65,12 @@ export default {
       });
     },
 
-    openError(){
+    openError(mensaje){
       this.$notify({
-        group: 'foo',
-        title: 'Alta Paciente',
-        type: 'foo',
-        text: 'Se creo correctamente el paciente.'
+        group: 'error',
+        title: 'Error!',
+        type: 'error',
+        text: mensaje
       });
     },
     
@@ -83,10 +82,10 @@ export default {
     async crearNuevoPaciente( body ) {
         try{
           let respuesta =  await this.crearPaciente( body )
-          console.log(respuesta)
-          this.formData = this.getInitialData()
+          if( !respuesta.status ) this.openError(respuesta.msg)
+          else this.openInfo(body)
         } catch( err ){
-          console.error("Ocurrio un error a consultar los pacientes")
+          this.openError("Ocurrio un error a consultar los pacientes")
         }
     }
 

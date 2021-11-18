@@ -9,7 +9,7 @@
   <div id="navigator" class="container">
 
     <vue-form :state="formstate" @submit.prevent="guardar()" @reset="cancelar()" class="form-registro">
-
+            
       <div class="form-row">
         <!-- -------------------------- Nombre --------------------------  -->
         <div class="form-group col-md-4">
@@ -21,10 +21,14 @@
                    name="nombre"
                    class="form-control input-login"
                    required
-                   autocomplete="off">
+                   autocomplete="off"
+                   no-espacios>
             <field-messages name="nombre" show="$dirty">
               <div slot="required" class="alert alert-danger mt-1">
                 Campo requerido.
+              </div>
+              <div slot="no-espacios" class="alert alert-danger mt-1">
+                No esta permitido el ingreso de espacios entremedio del texto
               </div>
             </field-messages>
           </validate>
@@ -39,10 +43,14 @@
                    name="apellido"
                    class="form-control input-login"
                    required
-                   autocomplete="off">
+                   autocomplete="off"
+                   no-espacios>
             <field-messages name="apellido" show="$dirty">
               <div slot="required" class="alert alert-danger mt-1">
                 Campo requerido.
+              </div>
+              <div slot="no-espacios" class="alert alert-danger mt-1">
+                No esta permitido el ingreso de espacios entremedio del texto
               </div>
             </field-messages>
           </validate>
@@ -88,11 +96,11 @@
                    v-model="formData.dni"
                    name="dni"
                    class="form-control input-login"
-                   no-espacios
-                   autocomplete="off">
+                   autocomplete="off"
+                   required>
             <field-messages name="dni" show="$dirty">
-              <div slot="no-espacios" class="alert alert-danger mt-1">
-                No esta permitido el ingreso de espacios entremedio del texto
+              <div slot="required" class="alert alert-danger mt-1">
+                Campo requerido.
               </div>
             </field-messages>
           </validate>
@@ -100,7 +108,7 @@
         <!-- -------------------------- Telefono --------------------------  -->
         <div class="form-group col-md-4">
           <validate tag="div">
-            <input type="text" 
+            <input type="number" 
                    id="telefono"
                    placeholder="Teléfono"
                    v-model="formData.telefono" 
@@ -168,6 +176,21 @@
       </vue-form>
 
       <notifications group="foo" />
+      <notifications group="error" />
+
+      <div>
+        <b-modal id="modal-producto" 
+                title="Modificar Paciente"
+                class="model-producto " 
+                hide-footer
+                size="lg"
+                centered 
+                hide-backdrop 
+                no-close-on-backdrop
+                >
+          <ProductoModificar :formData='formData'></ProductoModificar>
+        </b-modal>
+      </div>
 
     </div>
 
