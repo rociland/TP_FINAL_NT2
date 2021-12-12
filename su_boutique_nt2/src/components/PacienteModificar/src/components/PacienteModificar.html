@@ -4,7 +4,7 @@
 
   <div id="navigator" class="container">
 
-    <vue-form :state="formstate" @prevent="guardar()" @reset="cancelar()" class="form-registro">
+    <vue-form :state="formstate" @submit.prevent="guardar()" @reset="cancelar()" class="form-registro">
             
       <div class="form-row">
         <!-- -------------------------- Nombre --------------------------  -->

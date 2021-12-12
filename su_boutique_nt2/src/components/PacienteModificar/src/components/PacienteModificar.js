@@ -21,6 +21,7 @@ export default {
       fechaMax        : '',
       fechaMin        : '',
       mensaje         : '',
+      modificar       : false
     }
   },
 
@@ -39,19 +40,9 @@ export default {
 
   methods: {
     
-    guardar() {
-        this.error = false
-        let body = { ...this.formData }
-        this.modificarDatos( body )
-    }, 
-  
-    cancelar() {
-      // this.formData = this.getInitialData()
-      this.$bvModal.hide('modal-paciente')
-    },
-
     async modificarDatos( body ) {
         try{
+          
           let respuesta =  await this.modificarPaciente( body )
           this.mensaje = respuesta.msg
           if( !respuesta.status ) 
@@ -63,6 +54,18 @@ export default {
         } catch( err ){
           this.openError("Ocurrio un error a consultar los pacientes")
         }
+    },
+
+    guardar() {
+      this.modificar = true
+      console.log("guarda...")
+      let body = { ...this.formData }
+      this.modificarDatos( body )
+    }, 
+  
+    cancelar() {
+      this.modificar = false
+      this.$bvModal.hide('modal-paciente')
     },
 
     openInfo(){

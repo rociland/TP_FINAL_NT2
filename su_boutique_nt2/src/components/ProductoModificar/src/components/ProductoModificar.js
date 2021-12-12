@@ -51,6 +51,7 @@ export default {
     },
     
     cancelar() {
+      console.log("cancelar.")
       this.$bvModal.hide('modal-producto') 
     },
 
