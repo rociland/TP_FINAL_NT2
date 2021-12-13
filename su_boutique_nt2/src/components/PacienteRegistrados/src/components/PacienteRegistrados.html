@@ -8,9 +8,15 @@
   <div id="navigator" class="container">
     
     <br>
-    <div id="filtro">
-      <PacienteFiltro :model="model" :nombreCancelar="modelCancelar"></PacienteFiltro>
+    <!-- filtro -->
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <input type="text" placeholder="Filtro" v-model="textFiltro" v-on:change="handleChange" 
+          class="form-control input-login" autocomplete="off">
+      </div>
+
     </div>
+  
     <br>
         <div v-if="pacientes" class="table-responsive"> 
             <table class="table">
@@ -25,7 +31,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(paciente, index) in pacientes" :key="index">
+                <tr v-for="(paciente, index) in eventPacientes()" :key="index">
                   <td>{{ paciente.dni }}</td>
                   <td >{{ paciente.apellido }}, {{ paciente.nombre }}</td>
                   <td>{{ paciente.fecha }}</td>
@@ -65,6 +71,15 @@
           <PacienteModificar :formData='formData'></PacienteModificar>
         </b-modal>
       </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-8"></div>
+        <div class="form-group col-md-4">
+          <button class="btn btn-cancelar my-3" type="reset" id="cancelar" @click="cancelarFiltro()">
+            VOLVER
+          </button>
+        </div>
+      </div> 
 
   </div> <!-- navigator -->
 

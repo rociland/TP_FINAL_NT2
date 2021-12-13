@@ -1,14 +1,12 @@
 import { PacienteServer } from '../../../../funciones/paciente'
 
 import HeaderTitle from '../../../comunes/HeaderTitulo.vue'
-import PacienteFiltro from '../../../PacienteFiltro/index.vue'
 import PacienteModificar from '../../../PacienteModificar/index.vue'
 
 export default {
   name: 'src-components-tabla-paciente',
   components: {
     HeaderTitle,
-    PacienteFiltro,
     PacienteModificar
   },
   props: ['aplicoFiltro'],
@@ -20,6 +18,7 @@ export default {
       pacientes       : [],
       model           : false,
       modelCancelar   : 'VOLVER',
+      textFiltro  : "",
       formData        : this.getInitialData()
     }
   },
@@ -75,7 +74,26 @@ export default {
         type: 'error',
         text: this.mensaje
       });
+    },
+
+    eventPacientes(){
+      return this.pacientes.filter( item => {
+                                      return ( item.dni.toUpperCase().indexOf(this.textFiltro.toUpperCase()) > -1  
+                                            || item.apellido.toUpperCase().indexOf(this.textFiltro.toUpperCase()) > -1  
+                                            || item.nombre.toUpperCase().indexOf(this.textFiltro.toUpperCase()) > -1 
+                                            || item.fecha.toUpperCase().indexOf(this.textFiltro.toUpperCase()) > -1 
+                                            || item.telefono.toUpperCase().indexOf(this.textFiltro.toUpperCase()) > -1 
+                                            || item.domicilio.toUpperCase().indexOf(this.textFiltro.toUpperCase()) > -1  ) })
+    },
+
+    cancelarFiltro() {
+      this.$router.push('home')
+    },
+
+    handleChange(event) {
+      this.textFiltro = event.target.value;
     }
+
 
   }
 }
