@@ -51,7 +51,7 @@
 
 
     <br>
-    <div v-if="productos.length" class="table-responsive">
+    <div v-if="productos" class="table-responsive">
       <table class="table">
         <thead>
           <tr>
@@ -82,8 +82,7 @@
 
     </div>
     <h4 v-if="peticion" class="alert alert-info">Cargando datos...</h4>
-    <h4 v-if="!peticion && productos.length === 0" class="alert alert-secondary">No se encontraron registrados de
-      productos</h4>
+    <h4 v-if="!productos" class="alert alert-secondary">No se encontraron registrados de productos</h4>
 
 
       <div>

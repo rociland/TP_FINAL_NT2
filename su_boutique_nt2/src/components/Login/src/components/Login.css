@@ -68,3 +68,7 @@ h1 {
     border-color:rgb(116, 90, 114);
     width: 75%;
   }
+
+  .alert-dark {
+    background-color: #ef9ab36e;
+}

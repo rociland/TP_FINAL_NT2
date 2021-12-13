@@ -59,8 +59,7 @@ export default {
     async obtenerPacientes() {
       this.peticion = true
         try{
-          let respuesta =  await this.pedirPacientesAlServidor()
-          this.pacientes = respuesta.data
+          this.pacientes =  await this.pedirPacientesAlServidor()
           this.peticion = false
         } catch( err ){
           this.mensaje = `Ocurrio un error a consultar los pacientes. ${err}`

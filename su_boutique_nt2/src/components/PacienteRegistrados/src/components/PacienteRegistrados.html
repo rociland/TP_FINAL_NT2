@@ -12,7 +12,7 @@
       <PacienteFiltro :model="model" :nombreCancelar="modelCancelar"></PacienteFiltro>
     </div>
     <br>
-        <div v-if="pacientes.length" class="table-responsive"> 
+        <div v-if="pacientes" class="table-responsive"> 
             <table class="table">
               <thead>
                 <tr>
@@ -21,7 +21,6 @@
                   <th>Fecha</th>
                   <th>Telefono</th>
                   <th>Domicilio</th>
-                  <th>Historial</th>
                   <th>Modificar</th>
                 </tr>
               </thead>
@@ -32,12 +31,6 @@
                   <td>{{ paciente.fecha }}</td>
                   <td>{{ paciente.telefono }}</td>
                   <td>{{ paciente.domicilio }}</td>
-                  <td>
-                    <font-awesome-icon v-on:click="prueba(index)" 
-                                           v-b-modal.modal-paciente 
-                                           icon="clipboard"
-                                           class="icono"/>
-                  </td>
                   <td>
                       <font-awesome-icon v-on:click="modificar(index)" 
                                           v-b-modal.modal-paciente 
@@ -51,7 +44,7 @@
         </div>
         
        <h4 v-if="peticion" class="alert alert-info">Cargando datos...</h4> 
-       <h4 v-if="!peticion && pacientes.length === 0"  class="alert alert-secondary">No se encontraron registrados de pacientes</h4>
+       <h4 v-if="!pacientes"  class="alert alert-secondary">No se encontraron registrados de pacientes</h4>
    
  
  

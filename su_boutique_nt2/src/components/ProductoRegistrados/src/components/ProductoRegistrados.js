@@ -54,8 +54,7 @@ export default {
     async obtenerProductos() {
       this.peticion = true
         try{
-          let respuesta =  await this.pedirProductosAlServidor()
-          this.productos = respuesta.data
+          this.productos =  await this.pedirProductosAlServidor()
           this.peticion = false
         } catch( err ){
           console.error("Ocurrio un error a consultar los productos")

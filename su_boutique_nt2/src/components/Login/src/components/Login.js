@@ -37,16 +37,14 @@ export default {
         try {
                 let body  = { usuario : dataIngresada.usuario, password: dataIngresada.contrasenia }
                 let respuesta = await this.axios.post( URL_LOGIN, body )
-                let data = respuesta.data
                 this.peticion = false
-                this.msg = data.msg
-                // "Los datos ingresados no son correctos, verificar usuario y contraseña"
-                if(data && data.status) {
+                if(respuesta.data) {
+                  this.msg = 'OK'
                   this.$router.push('home')
                 }
           } catch ( err ) {
               console.error('Error en recepcion de datos del servidor, ', err )
-              this.msg = "Ocurrio un error en la recepcion del servicio"
+              this.msg = err.response.data
         }
     }
   }
