@@ -8,49 +8,16 @@
     <br>
   
     <!-- filtro -->
-    <vue-form :state="formstate" @submit="filtrar()" @reset="cancelarFiltro()" class="form-registro">
-
-      <div class="form-row">
-
-        <div class="form-group col-md-4">
-          <input type="text" id="codigo" placeholder="Codigo" v-model="formData.codigo" name="codigo"
+    
+    <div class="form-row">
+        <div class="form-group col-md-12">
+          <input type="text" placeholder="Filtro" v-model="textFiltro" v-on:change="handleChange" 
             class="form-control input-login" autocomplete="off">
         </div>
 
-        <div class="form-group col-md-4">
-          <input type="text" id="nombre" placeholder="Nombre" v-model="formData.nombre" name="nombre"
-            class="form-control input-login" autocomplete="off">
-        </div>
-
-        <div class="form-group col-md-4">
-          <input type="text" id="marca" placeholder="Marca" v-model="formData.marca"
-            name="marca" class="form-control input-login" autocomplete="off">
-        </div>
-
       </div>
-
-
-      <div class="form-row">
-
-        <div class="form-group col-md-4"></div>
-
-        <div class="form-group col-md-4">
-          <button class="btn btn-cancelar my-3" type="reset" id="cancelar">
-            VOLVER
-          </button>
-        </div>
-
-        <div class="form-group col-md-4">
-          <button class="btn btn-aceptar my-3" type="submit" id="boton">
-            BUSCAR
-          </button>
-        </div>
-      </div>
-
-    </vue-form>
-
-
     <br>
+
     <div v-if="productos" class="table-responsive">
       <table class="table">
         <thead>
@@ -64,7 +31,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(producto, index) in productos" :key="index">
+          <tr v-for="(producto, index) in eventProducto()" :key="index">
             <td>{{ producto.codigo }}</td>
             <td>{{ producto.producto }}</td>
             <td>{{ producto.tipo }}</td>
@@ -99,6 +66,15 @@
         </b-modal>
       </div>
 
+      <div class="form-row">
+        <div class="form-group col-md-8"></div>
+        <div class="form-group col-md-4">
+          <button class="btn btn-cancelar my-3" type="reset" id="cancelar" @click="cancelarFiltro()">
+            VOLVER
+          </button>
+        </div>
+      </div> 
+      
   </div>
 
 

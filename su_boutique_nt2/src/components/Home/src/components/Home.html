@@ -5,11 +5,13 @@
       <HeaderTitulo :titulo="titulo"></HeaderTitulo>
     </div>
 
-    <div id="navigator" class="container">
+    <font-awesome-icon @click="cambiar()" icon="fill-drip" class="icono-cambio-color"/>
+    
+  <div id="navigator" class="container">
       
-      <div class="card-pacientes row">
+      <div class="card-pacientes row" :style="{ background : color1 }">
       
-        <div class="col-md-3 text-center pacientes-icons">
+        <div class="col-md-3 text-center pacientes-icons" :style="{ background : colorCard1 }">
           <font-awesome-icon icon="users" />
         </div>
         
@@ -44,38 +46,37 @@
     
       </div> -->
   
-      <div class="card-productos row">
+      <div class="card-productos row" :style="{ background : color2 }" >
     
-        <div class="col-md-3 text-center productos-icons">
-          <font-awesome-icon icon="wine-bottle" />
-        </div>
-    
-        <div class="col-md-9 text-right productos-detail">
-          <h2>CATALOGO DE PRODUCTOS</h2>
-          <router-link to="/productoregistro">
-            <p>Alta de producto</p>
-          </router-link>
-          <router-link to="/productosregistrados">
-            <p>Lista de productos</p>
-          </router-link>
-        </div>
-    
-      </div>
-      <!-- -->
-      <div>
-        <b-modal id="modal-filtro" 
-                title="Buscar Paciente"
-                class="model-filtro " 
-                hide-footer
-                size="lg"
-                centered 
-                hide-backdrop 
-                no-close-on-backdrop
-                >
-          <p class="info-filtro">Filtro de paciente</p>
-          <PacienteFiltro :model="model" :nombreCancelar="modelCancelar"></PacienteFiltro>
-        </b-modal>
-      </div>
+          <div class="col-md-3 text-center productos-icons" :style="{ background : colorCard2 }">
+            <font-awesome-icon icon="wine-bottle" />
+          </div>
+      
+          <div class="col-md-9 text-right productos-detail"  >
+            <h2>CATALOGO DE PRODUCTOS</h2>
+              <router-link to="/productoregistro">
+                <p>Alta de producto</p>
+              </router-link>
+              <router-link to="/productosregistrados">
+                <p>Lista de productos</p>
+              </router-link>
+            </div>
+          </div>
+          <!-- -->
+          <div>
+            <b-modal id="modal-filtro" 
+                    title="Buscar Paciente"
+                    class="model-filtro " 
+                    hide-footer
+                    size="lg"
+                    centered 
+                    hide-backdrop 
+                    no-close-on-backdrop
+                    >
+              <p class="info-filtro">Filtro de paciente</p>
+              <PacienteFiltro :model="model" :nombreCancelar="modelCancelar"></PacienteFiltro>
+            </b-modal>
+          </div>
 
     </div>
 

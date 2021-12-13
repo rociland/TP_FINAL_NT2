@@ -4,18 +4,16 @@
     .card-turnos,
     .card-productos {
       margin: 50px;
-      /* width: 100%; */
       height: 200px;
       border: 2px solid #ededed;
-      background-color: #fff1fe;
     }
-    
+/*     
     .card-turnos {
       background:  #ebf5fb ;
-    }
-    .card-productos {
+    } */
+    /* .card-productos {
       background: #e2efff;
-    }
+    } */
     
     .pacientes-icons,
     .productos-icons,
@@ -25,26 +23,24 @@
       justify-content: center;
       align-items: center;
       font-size: 5em;
-      background-color: #e5aee1;
+     
       color: white;
     }
-    .turnos-icons {
+    /* .turnos-icons {
       background-color:  #76ccbb;
-    }
-    .productos-icons {
-      background-color: #599ff5;
-    }
-    .pacientes-detail h2,
+    } */
+    /* .pacientes-detail h2,
     .turnos-detail h2,
     .productos-detail h2 {
       color: #e5aee1;
       font-style: italic;
-    }
-    .turnos-detail h2 {
+    } */
+    /* .turnos-detail h2 {
       color: #76ccbb;
-    }
-    .productos-detail h2 {
-      color: #599ff5;
+    } */
+    h2 {
+      color: #a3a3a3ea;
+      font-style: italic;
     }
     p:hover {
       cursor: pointer;
@@ -59,3 +55,10 @@
     /* .modal-content  {
       background-color: #8a6b8787 !important;
     } */
+
+
+.icono-cambio-color {
+      font-size: 20px;
+      color: #745a72;
+      cursor: pointer;
+  }

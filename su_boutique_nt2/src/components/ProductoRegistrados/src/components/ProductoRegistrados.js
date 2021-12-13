@@ -18,6 +18,7 @@ export default {
       peticion    : false,
       productos   : [],
       formstate   : {},
+      textFiltro  : "",
       formData    : this.getInitialData()
     }
   },
@@ -59,9 +60,20 @@ export default {
         } catch( err ){
           console.error("Ocurrio un error a consultar los productos")
         }
+    },
+
+    eventProducto(  ) {
+      return this.productos.filter( item => {
+                                     return ( item.producto.toUpperCase().indexOf(this.textFiltro.toUpperCase()) > -1  
+                                            || item.precio.toUpperCase().indexOf(this.textFiltro.toUpperCase()) > -1  
+                                            || item.codigo.toUpperCase().indexOf(this.textFiltro.toUpperCase()) > -1 
+                                            || item.tipo.toUpperCase().indexOf(this.textFiltro.toUpperCase()) > -1 
+                                            || item.marca.toUpperCase().indexOf(this.textFiltro.toUpperCase()) > -1  ) })
+    },
+
+    handleChange(event) {
+      this.textFiltro = event.target.value;
     }
-
-
 
   }
 }
