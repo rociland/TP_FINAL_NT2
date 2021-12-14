@@ -19,7 +19,8 @@ export default {
       model           : false,
       modelCancelar   : 'VOLVER',
       textFiltro  : "",
-      formData        : this.getInitialData()
+      formData        : this.getInitialData(),
+      mensaje: ""
     }
   },
   computed: {

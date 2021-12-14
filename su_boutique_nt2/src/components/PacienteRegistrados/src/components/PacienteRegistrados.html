@@ -51,7 +51,7 @@
         
        <h4 v-if="peticion" class="alert alert-info">Cargando datos...</h4> 
        <h4 v-if="!pacientes"  class="alert alert-secondary">No se encontraron registrados de pacientes</h4>
-   
+       <h4 v-if="mensaje" class="alert alert-info">{{mensaje}}</h4> 
  
  
        <notifications group="error" />
@@ -68,7 +68,7 @@
                 hide-backdrop 
                 no-close-on-backdrop
                 >
-          <PacienteModificar :formData='formData'></PacienteModificar>
+          <PacienteModificar :formData='formData' @mensaje="mensaje=$event"></PacienteModificar>
         </b-modal>
       </div>
 

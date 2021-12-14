@@ -50,12 +50,16 @@ export default {
     
     async modificarDatos( body ) {
         try{
-          console.log(body)
           let respuesta =  await this.modificarPaciente( body )
           console.log(respuesta)
           this.mensaje = respuesta.msg
-          if( respuesta ) 
-            this.$bvModal.hide('modal-paciente')
+
+          let msjRespuesta = ""
+          if(!respuesta.msg)
+              msjRespuesta = `Se modifico el paciente ${body.apellido}, ${body.nombre} `
+          
+          this.$emit('mensaje', msjRespuesta)
+          this.$bvModal.hide('modal-paciente')
           
         } catch( err ){
           this.openError("Ocurrio un error a consultar los pacientes")

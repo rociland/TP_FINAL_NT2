@@ -9,7 +9,7 @@
         <div class="col-30">
           
           <div v-if="msg != 'OK'"
-               class="alert alert-dark" 
+               :class="['alert', 'alert-dark']" 
                role="alert">
                {{ msg }}
           </div>
