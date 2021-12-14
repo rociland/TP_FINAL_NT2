@@ -43,13 +43,9 @@ export default  {
     props: [],
     created() {
     let token = localStorage.token
-    console.log('esta logeado? token: ', token)
 
     if(token === "undefined"){
-      console.log("ingresar")
       this.$router.push('noautenticado')
-    }else{
-      console.log("logeadooo")
     }
 
    },

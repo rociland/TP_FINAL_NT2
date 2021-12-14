@@ -36,11 +36,17 @@
 <script>
 
 import imageLogo from "../../assets/logo.png"
-// import { URL_LOGIN } from "../../../../constants/constants"
 
 export default  {
     name: 'src-components-no-legeado',
     props: [],
+    created() {
+      let token = localStorage.token
+      if(!(token === "undefined")){
+        this.$router.push('yalogeado')
+      }
+
+    },
     mounted () {
 
     },

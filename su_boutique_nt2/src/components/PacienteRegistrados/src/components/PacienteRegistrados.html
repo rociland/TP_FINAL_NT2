@@ -38,7 +38,7 @@
                   <td>{{ paciente.telefono | formatoTel }}</td>
                   <td>{{ paciente.domicilio }}</td>
                   <td>
-                      <font-awesome-icon v-on:click="modificar(index)" 
+                      <font-awesome-icon v-on:click="modificar(paciente)" 
                                           v-b-modal.modal-paciente 
                                           icon="edit"
                                           class="icono"/>
