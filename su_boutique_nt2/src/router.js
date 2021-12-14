@@ -4,7 +4,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-// import Consulta from './components/Consulta/index.vue'
 import Login from './components/Login/index.vue'
 import Home from './components/Home/index.vue'
 
@@ -13,7 +12,6 @@ import NoLogeado from './components/comunes/NoLogeado.vue'
 
 
 //Paciente
-// import PacienteFiltro from './components/PacienteFiltro/index.vue'
 import PacienteRegistro from './components/PacienteRegistro/index.vue'
 import PacienteRegistrados from './components/PacienteRegistrados/index.vue'
 
@@ -34,7 +32,6 @@ const router = new VueRouter({
         // { path: '/consulta', component: Consulta },
         { path: '/login', component: Login },
         { path: '/home', component: Home },
-        // { path: '/filtro', component: PacienteFiltro },
         { path: '/pacienteregistro', component: PacienteRegistro },
         { path: '/pacienteregistrados', component: PacienteRegistrados },
         { path: '/productoregistro', component: ProductoRegistro },
