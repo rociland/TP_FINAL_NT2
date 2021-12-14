@@ -17,6 +17,18 @@ export default {
   computed: {
 
   },
+  created() {
+    let token = localStorage.token
+    console.log('esta logeado? token: ', token)
+
+    if(token === "undefined"){
+      console.log("ingresar")
+    }else{
+      console.log("logeadooo")
+      this.$router.push('yalogeado')
+    }
+
+  },
   mounted () {
 
   },
@@ -38,8 +50,10 @@ export default {
                 let body  = { usuario : dataIngresada.usuario, password: dataIngresada.contrasenia }
                 let respuesta = await this.axios.post( URL_LOGIN, body )
                 this.peticion = false
+                console.log(respuesta)
                 if(respuesta.data) {
                   this.msg = 'OK'
+                  localStorage.token = respuesta.data.token
                   this.$router.push('home')
                 }
           } catch ( err ) {

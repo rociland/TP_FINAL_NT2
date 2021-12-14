@@ -11,6 +11,10 @@
           <h2 class="text_home">{{ titulo }}</h2>
       </div>
 
+      <div class="col-md-3 ">        
+              <font-awesome-icon @click="cerrar()" icon="sign-out-alt" class="icono-cambio-color"/>
+      </div>
+
 
     </div>
 
@@ -33,7 +37,10 @@ import image from '../../assets/logo.png'
       }
     },
     methods: {
-
+      cerrar(){
+       localStorage.token = undefined
+       this.$router.push('login')
+      }
     },
     computed: {
 
@@ -63,4 +70,11 @@ import image from '../../assets/logo.png'
     .icon-header{
       width: 40px;
     }
+
+    .icono-cambio-color {
+      font-size: 25px;
+      color: #745a72;
+      cursor: pointer;
+  }
+
 </style>

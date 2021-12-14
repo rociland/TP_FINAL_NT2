@@ -12,7 +12,7 @@ export default {
   data () {
     return {
       image         : image,
-      titulo        : 'Bienvenido a SuBoutique',
+      titulo        : "",
       model         : true,
       modelCancelar : 'CANCELAR',
       color1        : "#fff1fe",
@@ -24,7 +24,21 @@ export default {
   computed: {
 
   },
+  created() {
+    let token = localStorage.token
+    console.log('esta logeado? token: ', token)
+
+    if(token === "undefined"){
+      console.log("ingresar")
+      this.$router.push('noautenticado')
+    }else{
+      console.log("logeadooo")
+      this.titulo = "Bienvenido a SuBoutique"
+    }
+
+  },
   mounted () {
+    console.log('Bienvenida -> Mounted')
   },
   methods: {
     cambiar() {
