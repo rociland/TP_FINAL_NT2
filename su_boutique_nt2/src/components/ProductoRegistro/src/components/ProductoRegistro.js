@@ -1,6 +1,6 @@
 import HeaderTitle from '../../../comunes/HeaderTitulo.vue'
 import image from "../../../../assets/crema.jpg"
-import { ProductoServer } from '../../../../funciones/producto'
+import {miMixGlobalProducto} from '../../../../mixinsProducto'
 
 
 export default {
@@ -9,7 +9,7 @@ export default {
     HeaderTitle
   },
   props: [],
-  mixins: [ProductoServer],
+  mixins: [miMixGlobalProducto],
   data () {
     return {
       titulo      : 'Catalogo de productos / Alta de producto',
@@ -38,7 +38,8 @@ export default {
     guardar() {
       let body = { ...this.formData }
       console.log(`Datos ingresados... ${body}`)
-      this.crearNuevoProducto( body )
+      this.crearProducto( body )
+      this.formData = this.getInitialData()
       this.$router.push('home')
     }, 
     
@@ -55,18 +56,6 @@ export default {
       this.formData = this.getInitialData()
       this.$router.push('home')
     },
-
-    async crearNuevoProducto( body ) {
-        try{
-          let respuesta =  await this.crearProducto( body )
-          console.log(respuesta)
-          this.formData = this.getInitialData()
-        } catch( err ){
-          console.error("Ocurrio un error a consultar los pacientes")
-        }
-    }
-
-  
 
   }
 }

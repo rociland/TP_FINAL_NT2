@@ -106,7 +106,8 @@
         </div>
 
         <div class="form-group col-md-4">
-          <button class="btn btn-aceptar my-3" type="submit" id="crear">
+          <button class="btn btn-aceptar my-3" type="submit" :disabled="formstate.$invalid"  id="crear">
+          <!-- <button class="btn btn-aceptar my-3" type="submit" id="crear"> -->
             GUARDAR 
           </button>
         </div>

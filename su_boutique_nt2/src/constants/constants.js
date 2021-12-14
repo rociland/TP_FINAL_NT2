@@ -13,6 +13,8 @@ export const URL_PACIENTES_MODIFICAR = BASE_URL + "/pacientes/modificar"
 // -------Productos
 export const URL_PRODUCTOS = BASE_URL + "/producto"
 export const URL_PRODUCTOS_CREAR = BASE_URL + "/producto/crear"
+export const URL_PRODUCTOS_GUARDAR = BASE_URL + "/producto/modificar/"
+export const URL_PRODUCTOS_BORRAR = BASE_URL + "/producto/borrar/"
 
 
 

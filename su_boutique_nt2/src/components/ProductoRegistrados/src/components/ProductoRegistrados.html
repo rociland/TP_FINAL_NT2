@@ -2,20 +2,10 @@
   <div id="header">
     <HeaderTitle :titulo="titulo"></HeaderTitle>
   </div>
+  
+  <h5 v-if="mensajeModificar" class="alert alert-info" >{{mensajeModificar}}</h5>
 
   <div id="navigator" class="container">
-
-    <br>
-  
-    <!-- filtro -->
-    
-    <div class="form-row">
-        <div class="form-group col-md-12">
-          <input type="text" placeholder="Filtro" v-model="textFiltro" v-on:change="handleChange" 
-            class="form-control input-login" autocomplete="off">
-        </div>
-
-      </div>
     <br>
 
     <div v-if="productos" class="table-responsive">
@@ -28,25 +18,29 @@
             <th>Marca</th>
             <th>Precio</th>
             <th>Modificar</th>
+            <th>Borrar</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(producto, index) in eventProducto()" :key="index">
-            <td>{{ producto.codigo }}</td>
+          <tr v-for="producto in mostrarProductos" >
+            <td>{{ producto.codigo | pasarAMayuscula }}</td>
             <td>{{ producto.producto }}</td>
             <td>{{ producto.tipo }}</td>
             <td>{{ producto.marca }}</td>
-            <td>$ {{ producto.precio }}</td>
+            <td> {{ producto.precio  | currency('$') }}</td>
             <td>
-              <font-awesome-icon v-on:click="modificar(index)" 
-                                  v-b-modal.modal-producto 
+              <font-awesome-icon v-on:click="modificar(producto)" 
                                   icon="edit"
                                   class="icono-edit"/>
+            </td>
+            <td>
+              <font-awesome-icon v-on:click="borrar(producto._id)" 
+                                  icon="trash-alt"
+                                  class="icono-borrar"/>
             </td>
           </tr>
         </tbody>
       </table>
-
     </div>
     <h4 v-if="peticion" class="alert alert-info">Cargando datos...</h4>
     <h4 v-if="!productos" class="alert alert-secondary">No se encontraron registrados de productos</h4>

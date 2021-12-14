@@ -1,7 +1,7 @@
-import { ProductoServer } from '../../../../funciones/producto'
-
 import HeaderTitle from '../../../comunes/HeaderTitulo.vue'
 import ProductoModificar from '../../../ProductoModificar/index.vue'
+
+import {miMixGlobalProducto} from '../../../../mixinsProducto'
 
 
 export default {
@@ -11,7 +11,7 @@ export default {
     ProductoModificar
   },
   props: [],
-  mixins: [ProductoServer],
+  mixins: [miMixGlobalProducto],
   data () {
     return {
       titulo      : 'Catalogo de productos / Lista de productos',
@@ -25,8 +25,13 @@ export default {
   computed: {
 
   },
+  filters : {
+    currency: function(value,signo) {
+    return signo + Number(value==''? 0 : value).toFixed(2)
+    }
+  },
   mounted () {
-    this.obtenerProductos()
+    this.buscarProductos()
   },
   methods: {
     getInitialData() {
@@ -35,7 +40,8 @@ export default {
         producto       : '',
         tipo           : null,
         marca          : '',
-        precio         : null
+        precio         : null,
+        textModificar : ""
       }
     },
     
@@ -43,36 +49,17 @@ export default {
 
     },
 
-    modificar(index){
-      this.formData = this.productos[index]
-      console.log("this.formData = ", this.formData)
+    async modificar(productoSelect){
+      this.formData = productoSelect
+      this.$bvModal.show('modal-producto') 
+    },
+
+    borrar(id) {
+      this.borrarProducto(id)
     },
 
     cancelarFiltro() {
       this.$router.push('home')
-    },
-
-    async obtenerProductos() {
-      this.peticion = true
-        try{
-          this.productos =  await this.pedirProductosAlServidor()
-          this.peticion = false
-        } catch( err ){
-          console.error("Ocurrio un error a consultar los productos")
-        }
-    },
-
-    eventProducto(  ) {
-      return this.productos.filter( item => {
-                                     return ( item.producto.toUpperCase().indexOf(this.textFiltro.toUpperCase()) > -1  
-                                            || item.precio.toUpperCase().indexOf(this.textFiltro.toUpperCase()) > -1  
-                                            || item.codigo.toUpperCase().indexOf(this.textFiltro.toUpperCase()) > -1 
-                                            || item.tipo.toUpperCase().indexOf(this.textFiltro.toUpperCase()) > -1 
-                                            || item.marca.toUpperCase().indexOf(this.textFiltro.toUpperCase()) > -1  ) })
-    },
-
-    handleChange(event) {
-      this.textFiltro = event.target.value;
     }
 
   }

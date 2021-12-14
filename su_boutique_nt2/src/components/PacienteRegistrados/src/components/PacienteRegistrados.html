@@ -34,7 +34,7 @@
                 <tr v-for="(paciente, index) in eventPacientes()" :key="index">
                   <td>{{ paciente.dni }}</td>
                   <td >{{ paciente.apellido }}, {{ paciente.nombre }}</td>
-                  <td>{{ paciente.fecha }}</td>
+                  <td>{{ paciente.fecha | formatoFecha }}</td>
                   <td>{{ paciente.telefono }}</td>
                   <td>{{ paciente.domicilio }}</td>
                   <td>

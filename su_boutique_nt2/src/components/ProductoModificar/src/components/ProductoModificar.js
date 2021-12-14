@@ -1,7 +1,7 @@
 import HeaderTitle from '../../../comunes/HeaderTitulo.vue'
 import image from "../../../../assets/crema.jpg"
-import { ProductoServer } from '../../../../funciones/producto'
-
+// import { ProductoServer } from '../../../../funciones/producto'
+import {miMixGlobalProducto} from '../../../../mixinsProducto'
 
 export default {
   name: 'src-components-producto-modificar',
@@ -9,19 +9,18 @@ export default {
     HeaderTitle
   },
   props: ['formData'],
-  mixins: [ProductoServer],
+  mixins: [miMixGlobalProducto],
   data () {
     return {
       titulo      : 'Catalogo de productos / Alta de producto',
       imagen      : image,
-      formstate   : {},
+      formstate   : {}
     }
   },
   computed: {
 
   },
   mounted () {
-
   },
   methods: {
     getInitialData() {
@@ -36,9 +35,8 @@ export default {
     
     guardar() {
       let body = { ...this.formData }
-      console.log("Datos ingresados...", body)
-      // this.crearNuevoProducto( body )
-      // this.$router.push('home')
+      this.modificarProducto( body )
+      this.$bvModal.hide('modal-producto') 
     }, 
     
     openError(){
@@ -51,19 +49,20 @@ export default {
     },
     
     cancelar() {
-      console.log("cancelar.")
+      console.log(2)
       this.$bvModal.hide('modal-producto') 
     },
 
-    async crearNuevoProducto( body ) {
-        try{
-          let respuesta =  await this.crearProducto( body )
-          console.log(respuesta)
-          this.formData = this.getInitialData()
-        } catch( err ){
-          console.error("Ocurrio un error a consultar los pacientes")
-        }
-    }
+    // async guardarProductoServicio( body ) {
+    //     try{
+    //       let respuesta =
+    //       //  await this.guardarProducto( body )
+    //       console.log(respuesta)
+    //       // this.formData = this.getInitialData()
+    //     } catch( err ){
+    //       console.error("Ocurrio un error a consultar los pacientes")
+    //     }
+    // }
 
   
 
