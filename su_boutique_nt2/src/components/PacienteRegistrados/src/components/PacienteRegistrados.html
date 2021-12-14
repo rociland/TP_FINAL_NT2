@@ -32,10 +32,10 @@
               </thead>
               <tbody>
                 <tr v-for="(paciente, index) in eventPacientes()" :key="index">
-                  <td>{{ paciente.dni }}</td>
+                  <td>{{ paciente.dni | formatoDNI}}</td>
                   <td >{{ paciente.apellido }}, {{ paciente.nombre }}</td>
                   <td>{{ paciente.fecha | formatoFecha }}</td>
-                  <td>{{ paciente.telefono }}</td>
+                  <td>{{ paciente.telefono | formatoTel }}</td>
                   <td>{{ paciente.domicilio }}</td>
                   <td>
                       <font-awesome-icon v-on:click="modificar(index)" 

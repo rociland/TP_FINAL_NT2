@@ -26,9 +26,8 @@ export default {
 
   },
   mounted () {
-    console.log(this.aplicoFiltro)
-    if(this.aplicoFiltro === undefined)
-        this.obtenerPacientes()
+   
+    this.obtenerPacientes()
     
   },
   methods: {
@@ -46,9 +45,6 @@ export default {
       }
     },
     
-    prueba(index){
-      console.log("asdad", index)
-    },
 
     modificar(index) {
       this.formData = this.pacientes[index]      

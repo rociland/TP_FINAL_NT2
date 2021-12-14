@@ -28,9 +28,15 @@ export default {
       nombreModal     : 'modal-notificar'
     }
   },
+  
   computed: {
 
   },
+   
+  destroyed() {
+    this.getInitialData();
+  },
+
   mounted () {
     const hoy = new Date()
     const anioMin = hoy.getFullYear() - 99
@@ -78,21 +84,22 @@ export default {
     },
     
     cancelar() {
-      //this.$bvModal.show('modal-notificar')
-      this.formData = this.getInitialData()
       this.$router.push('home')
     },
 
     async crearNuevoPaciente( body ) {
         try{
           let respuesta =  await this.crearPaciente( body )
-          this.mensaje = respuesta.msg
-          if( !respuesta.status ) 
-            this.openError()
-          else {
+
+          if( respuesta.status === 200 ){ 
             this.formData = this.getInitialData()
-            this.$bvModal.show('modal-notificar') // this.openInfo(body)
+            this.mensaje = respuesta.data.msg
+            this.openInfo(body)
+         } else if( respuesta.msg ){
+            this.mensaje = respuesta.msg
+            this.openError()
           }
+
         } catch( err ){
           this.openError("Ocurrio un error a consultar los pacientes")
         }

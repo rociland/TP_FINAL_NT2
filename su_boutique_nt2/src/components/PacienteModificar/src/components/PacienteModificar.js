@@ -42,15 +42,13 @@ export default {
     
     async modificarDatos( body ) {
         try{
-          
+          console.log(body)
           let respuesta =  await this.modificarPaciente( body )
+          console.log(respuesta)
           this.mensaje = respuesta.msg
-          if( !respuesta.status ) 
-            this.openError()
-          else {
+          if( respuesta ) 
             this.$bvModal.hide('modal-paciente')
-            this.openInfo()
-          }
+          
         } catch( err ){
           this.openError("Ocurrio un error a consultar los pacientes")
         }
@@ -58,7 +56,6 @@ export default {
 
     guardar() {
       this.modificar = true
-      console.log("guarda...")
       let body = { ...this.formData }
       this.modificarDatos( body )
     }, 

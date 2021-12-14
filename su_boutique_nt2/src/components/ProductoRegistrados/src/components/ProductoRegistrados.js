@@ -33,6 +33,7 @@ export default {
   mounted () {
     this.buscarProductos()
   },
+  
   methods: {
     getInitialData() {
       return {

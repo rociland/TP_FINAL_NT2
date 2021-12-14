@@ -28,8 +28,10 @@ export const PacienteServer = {
       
         async crearPaciente(body) {
             try {
+              console.log(body)
               let respuesta = await this.axios.post( URL_PACIENTES_CREAR , body )
-              return respuesta.data
+              console.log(respuesta)
+              return respuesta
             }
             catch( err ) {
               console.error('Error en recepcion de datos del servidor ', err)
@@ -40,8 +42,18 @@ export const PacienteServer = {
 
         async modificarPaciente(body) {
           try {
-            console.log(body)
-            let respuesta = await this.axios.post( URL_PACIENTES_MODIFICAR , body )
+            let bodyEnviar = {
+              nombre         : body.nombre,
+              apellido       : body.apellido,
+              fecha          : body.fecha,
+              tipoDocumento  : body.tipoDocumento,
+              dni            : body.dni,
+              telefono       : body.telefono,
+              domicilio      : body.domicilio,
+              piso           : body.piso,
+              departamento   : body.departamento
+            }
+            let respuesta = await this.axios.put( URL_PACIENTES_MODIFICAR + body._id , bodyEnviar )
             return respuesta.data
           }
           catch( err ) {

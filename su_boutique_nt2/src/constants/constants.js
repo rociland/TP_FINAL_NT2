@@ -6,7 +6,7 @@ export const URL_LOGIN = BASE_URL + "/login"
 // -------Paciente
 export const URL_PACIENTES = BASE_URL + "/pacientes"
 export const URL_PACIENTES_CREAR = BASE_URL + "/pacientes/crear"
-export const URL_PACIENTES_MODIFICAR = BASE_URL + "/pacientes/modificar"
+export const URL_PACIENTES_MODIFICAR = BASE_URL + "/pacientes/modificar/"
 
 
 
